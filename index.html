@@ -349,6 +349,17 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
 .admin-row-actions button{width:28px;height:28px;border-radius:6px;background:rgba(15,27,51,0.06);}
 .img-preview{width:56px;height:56px;border-radius:8px;object-fit:cover;margin-top:8px;border:1px solid var(--line-dark);background:#eee;}
 .form-note{font-size:11px;color:rgba(15,27,51,0.5);margin-top:-6px;margin-bottom:12px;}
+.admin-tabs{display:flex;gap:8px;margin-bottom:18px;border-bottom:1px solid var(--line-dark);}
+.admin-tab{padding:10px 14px;font-size:13px;font-weight:700;color:rgba(15,27,51,0.5);border-bottom:2px solid transparent;position:relative;}
+.admin-tab.on{color:var(--ink);border-bottom-color:var(--gold);}
+.order-badge-new{
+  display:inline-flex;align-items:center;justify-content:center;background:var(--crimson);color:#fff;
+  font-size:10px;font-weight:700;min-width:16px;height:16px;border-radius:999px;padding:0 4px;margin-left:6px;
+}
+.order-card{background:#fff;border:1px solid var(--line-dark);border-radius:12px;padding:14px;margin-bottom:10px;}
+.order-card-head{display:flex;justify-content:space-between;align-items:center;}
+.order-items{margin-top:8px;border-top:1px dashed var(--line-dark);padding-top:8px;}
+.order-empty{text-align:center;color:rgba(15,27,51,0.45);font-size:13px;padding:30px 0;}
 
 @media(max-width:980px){
   .grid{grid-template-columns:repeat(2,1fr);}
@@ -382,7 +393,10 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
         <span class="ic">🛍️</span>Savatcha
         <span class="count-pill" id="cartCount">0</span>
       </button>
-      <button class="top-action" onclick="openAdminGate()"><span class="ic">🔐</span>Admin</button>
+      <button class="top-action" style="position:relative" onclick="openAdminGate()">
+        <span class="ic">🔐</span>Admin
+        <span class="count-pill" id="orderBadge" style="display:none;">0</span>
+      </button>
     </div>
   </div>
   <nav class="subnav">
@@ -609,49 +623,59 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
 <div class="modal-overlay" id="adminModalOverlay">
   <div class="modal-box wide">
     <div class="modal-head">
-      <h3>🔐 Admin panel — mahsulotlarni boshqarish</h3>
+      <h3>🔐 Admin panel</h3>
       <button class="close-x" onclick="closeAdminPanel()">✕</button>
     </div>
-    <div class="admin-grid">
-      <div>
-        <div class="form-field"><label>Mahsulot nomi</label><input id="apTitle" placeholder="Masalan: Erkaklar kurtkasi"></div>
-        <div class="form-field"><label>Narxi (so'm)</label><input id="apPrice" type="number" placeholder="640000"></div>
-        <div class="form-field"><label>Eski narx (chegirma uchun, ixtiyoriy)</label><input id="apOld" type="number" placeholder="890000"></div>
-        <div class="form-field"><label>Tavsif (ixtiyoriy)</label><textarea id="apDesc" placeholder="Mahsulot haqida qisqacha ma'lumot..."></textarea></div>
-        <div class="form-field"><label>O'lchamlar (ixtiyoriy — kiyim/oyoq kiyim uchun)</label><input id="apSizes" placeholder="Masalan: 39,40,41,42,43 yoki S,M,L,XL"></div>
-        <div class="form-note" style="margin-top:-6px;">Bo'sh qoldirsangiz, xaridor to'g'ridan-to'g'ri "Savatchaga qo'shish" tugmasini bosadi. To'ldirsangiz, xaridor avval o'lcham tanlashi shart bo'ladi.</div>
-        <div class="form-field"><label>Kategoriya</label>
-          <select id="apCat">
-            <option value="kiyim">Kiyim olami</option>
-            <option value="texno">Texno gumbaz</option>
-            <option value="uy">Uy & oshxona</option>
-            <option value="gozallik">Go'zallik burchagi</option>
-            <option value="bolalar">Bolalar dunyosi</option>
-            <option value="sport">Sport maydoni</option>
-          </select>
+    <div class="admin-tabs">
+      <button class="admin-tab on" id="tabProductsBtn" onclick="switchAdminTab('products')">Mahsulotlar</button>
+      <button class="admin-tab" id="tabOrdersBtn" onclick="switchAdminTab('orders')">📦 Buyurtmalar<span class="order-badge-new" id="orderBadgeInline" style="display:none;"></span></button>
+    </div>
+    <div id="adminProductsTab">
+      <div class="admin-grid">
+        <div>
+          <div class="form-field"><label>Mahsulot nomi</label><input id="apTitle" placeholder="Masalan: Erkaklar kurtkasi"></div>
+          <div class="form-field"><label>Narxi (so'm)</label><input id="apPrice" type="number" placeholder="640000"></div>
+          <div class="form-field"><label>Eski narx (chegirma uchun, ixtiyoriy)</label><input id="apOld" type="number" placeholder="890000"></div>
+          <div class="form-field"><label>Tavsif (ixtiyoriy)</label><textarea id="apDesc" placeholder="Mahsulot haqida qisqacha ma'lumot..."></textarea></div>
+          <div class="form-field"><label>O'lchamlar (ixtiyoriy — kiyim/oyoq kiyim uchun)</label><input id="apSizes" placeholder="Masalan: 39,40,41,42,43 yoki S,M,L,XL"></div>
+          <div class="form-note" style="margin-top:-6px;">Bo'sh qoldirsangiz, xaridor to'g'ridan-to'g'ri "Savatchaga qo'shish" tugmasini bosadi. To'ldirsangiz, xaridor avval o'lcham tanlashi shart bo'ladi.</div>
+          <div class="form-field"><label>Kategoriya</label>
+            <select id="apCat">
+              <option value="kiyim">Kiyim olami</option>
+              <option value="texno">Texno gumbaz</option>
+              <option value="uy">Uy & oshxona</option>
+              <option value="gozallik">Go'zallik burchagi</option>
+              <option value="bolalar">Bolalar dunyosi</option>
+              <option value="sport">Sport maydoni</option>
+            </select>
+          </div>
+          <div class="form-field"><label>Rasm manzili (URL)</label><input id="apImgUrl" placeholder="https://..." oninput="previewFromUrl()"></div>
+          <div class="form-field"><label>Yoki rasmni kompyuterdan yuklash</label><input type="file" id="apImgFile" accept="image/*"></div>
+          <img id="apImgPreview" class="img-preview" style="display:none;">
+          <div class="form-field" style="margin-top:12px;"><label>Sotuv turi</label>
+            <div class="form-check"><input type="checkbox" id="apDokon" checked><label for="apDokon" style="margin:0;">Rasmiy do'kondan olib ketish</label></div>
+            <div class="form-check"><input type="checkbox" id="apUyga" checked><label for="apUyga" style="margin:0;">Uyga yetkazib berish</label></div>
+          </div>
+          <div class="form-field"><label>Belgi (ixtiyoriy)</label>
+            <select id="apTag">
+              <option value="">Yo'q</option>
+              <option value="vip">VIP narx</option>
+              <option value="top">Top tanlov</option>
+            </select>
+          </div>
+          <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="saveProduct()" id="apSaveBtn">Mahsulot qo'shish</button>
+          <div class="form-note" style="margin-top:8px;">Eslatma: bu — dizayn namunasi. Qo'shilgan mahsulotlar shu sahifa ochiq turgan vaqtda saqlanadi; haqiqiy do'kon uchun buni serverga (bazaga) ulash kerak bo'ladi.</div>
         </div>
-        <div class="form-field"><label>Rasm manzili (URL)</label><input id="apImgUrl" placeholder="https://..." oninput="previewFromUrl()"></div>
-        <div class="form-field"><label>Yoki rasmni kompyuterdan yuklash</label><input type="file" id="apImgFile" accept="image/*"></div>
-        <img id="apImgPreview" class="img-preview" style="display:none;">
-        <div class="form-field" style="margin-top:12px;"><label>Sotuv turi</label>
-          <div class="form-check"><input type="checkbox" id="apDokon" checked><label for="apDokon" style="margin:0;">Rasmiy do'kondan olib ketish</label></div>
-          <div class="form-check"><input type="checkbox" id="apUyga" checked><label for="apUyga" style="margin:0;">Uyga yetkazib berish</label></div>
+        <div>
+          <label style="display:block;font-size:12px;font-weight:700;margin-bottom:8px;color:rgba(15,27,51,0.6);">Joriy mahsulotlar (<span id="apCount">0</span>)</label>
+          <div class="admin-list" id="adminList"></div>
+          <button class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:14px;border:1px solid var(--line-dark);" onclick="adminLogout()">Adminlikdan chiqish</button>
         </div>
-        <div class="form-field"><label>Belgi (ixtiyoriy)</label>
-          <select id="apTag">
-            <option value="">Yo'q</option>
-            <option value="vip">VIP narx</option>
-            <option value="top">Top tanlov</option>
-          </select>
-        </div>
-        <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="saveProduct()" id="apSaveBtn">Mahsulot qo'shish</button>
-        <div class="form-note" style="margin-top:8px;">Eslatma: bu — dizayn namunasi. Qo'shilgan mahsulotlar shu sahifa ochiq turgan vaqtda saqlanadi; haqiqiy do'kon uchun buni serverga (bazaga) ulash kerak bo'ladi.</div>
       </div>
-      <div>
-        <label style="display:block;font-size:12px;font-weight:700;margin-bottom:8px;color:rgba(15,27,51,0.6);">Joriy mahsulotlar (<span id="apCount">0</span>)</label>
-        <div class="admin-list" id="adminList"></div>
-        <button class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:14px;border:1px solid var(--line-dark);" onclick="adminLogout()">Adminlikdan chiqish</button>
-      </div>
+    </div>
+    <div id="adminOrdersTab" style="display:none;">
+      <label style="display:block;font-size:12px;font-weight:700;margin-bottom:10px;color:rgba(15,27,51,0.6);">Tushgan buyurtmalar (<span id="ordersCount">0</span>)</label>
+      <div id="ordersList"></div>
     </div>
   </div>
 </div>
@@ -696,7 +720,8 @@ const FLASH = [
 ];
 
 let wishlist = new Set();
-let cart = []; // {id, qty}
+let cart = []; // {id, qty, size}
+let ORDERS = []; // {orderNum, name, phone, method, address, items, total, time, seen}
 
 function fmt(n){ return Math.round(n).toLocaleString('ru-RU').replace(/,/g,' ') + " so'm"; }
 function allProducts(){ return [...PRODUCTS, ...FLASH]; }
@@ -1014,10 +1039,62 @@ document.getElementById('passInput').addEventListener('keydown', e=>{ if(e.key==
 function openAdminPanel(){
   resetProductForm();
   renderAdminList();
+  document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('on'));
+  document.getElementById('tabProductsBtn').classList.add('on');
+  document.getElementById('adminProductsTab').style.display = 'block';
+  document.getElementById('adminOrdersTab').style.display = 'none';
   document.getElementById('adminModalOverlay').classList.add('show');
 }
 function closeAdminPanel(){ document.getElementById('adminModalOverlay').classList.remove('show'); }
 function adminLogout(){ isAdmin = false; closeAdminPanel(); }
+
+function switchAdminTab(tab){
+  document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('on'));
+  document.getElementById(tab==='products' ? 'tabProductsBtn' : 'tabOrdersBtn').classList.add('on');
+  document.getElementById('adminProductsTab').style.display = tab==='products' ? 'block' : 'none';
+  document.getElementById('adminOrdersTab').style.display = tab==='orders' ? 'block' : 'none';
+  if(tab==='orders'){
+    ORDERS.forEach(o=>o.seen=true);
+    updateOrderBadge();
+    renderOrdersList();
+  }
+}
+
+function renderOrdersList(){
+  document.getElementById('ordersCount').textContent = ORDERS.length;
+  const wrap = document.getElementById('ordersList');
+  if(ORDERS.length===0){
+    wrap.innerHTML = '<div class="order-empty">Hozircha buyurtmalar tushmagan.</div>';
+    return;
+  }
+  wrap.innerHTML = ORDERS.map(o=>{
+    const methodLabel = o.method==='uyga' ? '🚚 Uyga yetkazib berish' : "🏬 Do'kondan olib ketish";
+    const itemsHTML = o.items.map(it=>`<div style="font-size:12.5px;color:rgba(15,27,51,0.65);display:flex;justify-content:space-between;"><span>${it.title}${it.size?` · o'lcham: ${it.size}`:''} × ${it.qty}</span><span class="mono">${fmt(it.price*it.qty)}</span></div>`).join('');
+    return `<div class="order-card">
+      <div class="order-card-head">
+        <span class="mono" style="font-weight:700;color:var(--crimson);">${o.orderNum}</span>
+        <span style="font-size:11px;color:rgba(15,27,51,0.45);">${o.time}</span>
+      </div>
+      <div style="font-size:13.5px;font-weight:700;margin-top:8px;">👤 ${o.name} · ${o.phone}</div>
+      <div style="font-size:12.5px;color:rgba(15,27,51,0.6);margin-top:3px;">${methodLabel}${o.address?` — ${o.address}`:''}</div>
+      <div class="order-items">${itemsHTML}</div>
+      <div class="mono" style="font-weight:700;margin-top:10px;font-size:15px;text-align:right;">Jami: ${fmt(o.total)}</div>
+    </div>`;
+  }).join('');
+}
+
+function updateOrderBadge(){
+  const unseen = ORDERS.filter(o=>!o.seen).length;
+  const badge = document.getElementById('orderBadge');
+  const inline = document.getElementById('orderBadgeInline');
+  if(unseen>0){
+    badge.style.display='flex'; badge.textContent = unseen;
+    inline.style.display='inline-flex'; inline.textContent = unseen;
+  } else {
+    badge.style.display='none';
+    inline.style.display='none';
+  }
+}
 
 function renderAdminList(){
   document.getElementById('apCount').textContent = PRODUCTS.length;
@@ -1192,7 +1269,21 @@ function submitOrder(){
   if(!name || !phone){ alert("Iltimos, ism va telefon raqamingizni kiriting."); return; }
   if(method==='uyga' && !address){ alert("Iltimos, yetkazib berish manzilini kiriting."); return; }
 
+  const all = allProducts();
+  const items = cart.map(c=>{
+    const p = all.find(x=>x.id===c.id);
+    return { title: p ? p.title : 'Noma\'lum mahsulot', qty: c.qty, price: p ? p.price : 0, size: c.size || null };
+  });
+  const total = items.reduce((s,it)=>s+it.price*it.qty, 0);
   const orderNum = 'VM-' + Math.floor(100000+Math.random()*900000);
+
+  ORDERS.unshift({
+    orderNum, name, phone, method, address, items, total,
+    time: new Date().toLocaleString('uz-UZ'),
+    seen: false
+  });
+  updateOrderBadge();
+
   document.getElementById('checkoutBody').innerHTML = `
     <div style="text-align:center;padding:14px 0;">
       <div style="font-size:40px;">✅</div>
@@ -1217,6 +1308,7 @@ renderFlash();
 applyFilters();
 renderCart();
 calcInstallment();
+updateOrderBadge();
 </script>
 </body>
 </html>
