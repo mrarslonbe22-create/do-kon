@@ -8,96 +8,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0F1B33;
-  --ink-2:#16244A;
-  --paper:#F4F1E7;
-  --gold:#E3B24A;
-  --gold-2:#F4CD73;
-  --crimson:#C1473C;
-  --sage:#4E7A63;
-  --line:rgba(244,241,231,0.14);
-  --line-dark:rgba(15,27,51,0.12);
+  --ink:#0F1B33; --ink-2:#16244A; --paper:#F4F1E7;
+  --gold:#E3B24A; --gold-2:#F4CD73; --crimson:#C1473C; --sage:#4E7A63;
+  --line:rgba(244,241,231,0.14); --line-dark:rgba(15,27,51,0.12);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{
-  background:var(--paper);
-  color:var(--ink);
-  font-family:'Manrope',sans-serif;
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-}
-h1,h2,h3,.display{font-family:'Fraunces',serif;}
+body{background:var(--paper);color:var(--ink);font-family:'Manrope',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Fraunces',serif;}
 .mono{font-family:'Space Mono',monospace;}
 a{color:inherit;text-decoration:none;}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
 img{max-width:100%;display:block;}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
-
 .wrap{max-width:1200px;margin:0 auto;padding:0 28px;}
 
-/* ---------- HEADER ---------- */
-header{
-  position:sticky;top:0;z-index:50;
-  background:var(--ink);
-  color:var(--paper);
-  border-bottom:1px solid var(--line);
-}
-.topbar{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:24px;padding:16px 28px;max-width:1200px;margin:0 auto;
-}
-.logo{
-  font-size:24px;font-weight:700;letter-spacing:0.5px;
-  display:flex;align-items:center;gap:8px;flex-shrink:0;
-}
-.logo .badge{
-  background:linear-gradient(135deg,var(--gold-2),var(--gold));
-  color:var(--ink);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;
-  padding:2px 7px;border-radius:4px;letter-spacing:0.5px;
-}
-.search-shell{
-  flex:1;max-width:520px;position:relative;
-}
-.search-shell input{
-  width:100%;padding:12px 46px 12px 18px;border-radius:999px;
-  border:1px solid var(--line);background:rgba(244,241,231,0.06);
-  color:var(--paper);font-size:14px;
-}
+header{position:sticky;top:0;z-index:50;background:var(--ink);color:var(--paper);border-bottom:1px solid var(--line);}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 28px;max-width:1200px;margin:0 auto;}
+.logo{font-size:24px;font-weight:700;letter-spacing:0.5px;display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.logo .badge{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:var(--ink);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:0.5px;}
+.search-shell{flex:1;max-width:440px;position:relative;}
+.search-shell input{width:100%;padding:12px 46px 12px 18px;border-radius:999px;border:1px solid var(--line);background:rgba(244,241,231,0.06);color:var(--paper);font-size:14px;}
 .search-shell input::placeholder{color:rgba(244,241,231,0.5);}
-.search-shell button{
-  position:absolute;right:6px;top:50%;transform:translateY(-50%);
-  width:32px;height:32px;border-radius:50%;background:var(--gold);
-  color:var(--ink);display:flex;align-items:center;justify-content:center;
-}
-.top-actions{display:flex;align-items:center;gap:20px;flex-shrink:0;}
-.top-action{
-  display:flex;flex-direction:column;align-items:center;gap:2px;
-  font-size:11px;color:rgba(244,241,231,0.75);position:relative;
-}
-.top-action .ic{font-size:19px;}
+.search-shell button{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;}
+.top-actions{display:flex;align-items:center;gap:16px;flex-shrink:0;}
+.top-action{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10.5px;color:rgba(244,241,231,0.75);position:relative;white-space:nowrap;}
+.top-action .ic{font-size:18px;}
 .top-action.active-hint{color:var(--gold-2);}
-.count-pill{
-  position:absolute;top:-6px;right:-10px;background:var(--crimson);
-  color:#fff;font-size:10px;font-weight:700;min-width:16px;height:16px;
-  border-radius:999px;display:flex;align-items:center;justify-content:center;
-  padding:0 4px;
-}
-.subnav{
-  background:var(--ink-2);overflow-x:auto;white-space:nowrap;
-  border-bottom:1px solid var(--line);
-}
+.count-pill{position:absolute;top:-6px;right:-10px;background:var(--crimson);color:#fff;font-size:10px;font-weight:700;min-width:16px;height:16px;border-radius:999px;display:flex;align-items:center;justify-content:center;padding:0 4px;}
+.subnav{background:var(--ink-2);overflow-x:auto;white-space:nowrap;border-bottom:1px solid var(--line);}
 .subnav .wrap{display:flex;gap:2px;padding:0 28px;}
-.subnav button{
-  padding:12px 16px;font-size:13.5px;color:rgba(244,241,231,0.8);
-  border-bottom:2px solid transparent;font-weight:600;white-space:nowrap;
-}
+.subnav button{padding:12px 16px;font-size:13.5px;color:rgba(244,241,231,0.8);border-bottom:2px solid transparent;font-weight:600;white-space:nowrap;}
 .subnav button.on, .subnav button:hover{color:var(--gold-2);border-bottom-color:var(--gold);}
 
-.search-suggest{
-  position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;border-radius:14px;
-  box-shadow:0 24px 48px rgba(0,0,0,0.3);max-height:340px;overflow-y:auto;display:none;z-index:60;
-}
+.search-suggest{position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;border-radius:14px;box-shadow:0 24px 48px rgba(0,0,0,0.3);max-height:340px;overflow-y:auto;display:none;z-index:60;}
 .search-suggest.show{display:block;}
 .suggest-item{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;color:var(--ink);}
 .suggest-item:hover{background:rgba(15,27,51,0.05);}
@@ -107,95 +51,55 @@ header{
 .suggest-item .p{font-size:11.5px;color:rgba(15,27,51,0.5);font-family:'Space Mono',monospace;}
 .suggest-empty{padding:14px;font-size:12.5px;color:rgba(15,27,51,0.45);cursor:default;}
 
-.filter-bar{
-  display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:22px;
-  background:#fff;border:1px solid var(--line-dark);border-radius:14px;padding:12px 14px;
-}
-.filter-bar select, .filter-bar input{
-  padding:8px 12px;border-radius:8px;border:1px solid var(--line-dark);font-size:12.5px;
-  font-family:'Manrope',sans-serif;background:var(--paper);color:var(--ink);
-}
-.filter-bar .price-filter{display:flex;align-items:center;gap:6px;}
-.filter-bar .price-filter input{width:100px;}
-.filter-bar label.form-check{font-size:12.5px;color:var(--ink);}
-.filter-bar .result-count{margin-left:auto;font-size:12px;color:rgba(15,27,51,0.5);font-family:'Space Mono',monospace;}
-
-.product-modal-img-wrap{
-  position:relative;overflow:hidden;border-radius:14px;cursor:zoom-in;
-  aspect-ratio:1/1;background:linear-gradient(135deg,#e9e4d3,#d8d2bd);
-  display:flex;align-items:center;justify-content:center;font-size:70px;
-}
-.product-modal-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .15s ease;transform-origin:center;}
-.product-modal-img-wrap.zoomed{cursor:zoom-out;}
-.product-modal-img-wrap.zoomed img{transform:scale(2.2);}
-.zoom-hint{text-align:center;font-size:11px;color:rgba(15,27,51,0.45);margin-top:6px;}
-.size-row{display:flex;flex-wrap:wrap;gap:8px;}
-.size-btn{padding:8px 14px;border-radius:8px;border:1px solid var(--line-dark);background:#fff;font-size:13px;font-weight:600;}
-.size-btn.on{background:var(--ink);color:var(--gold-2);border-color:var(--ink);}
-.size-btn:hover{border-color:var(--gold);}
-.qv-btn{
-  position:absolute;bottom:10px;right:10px;background:rgba(15,27,51,0.75);color:#fff;
-  font-size:10.5px;font-weight:700;padding:5px 9px;border-radius:6px;z-index:2;
-}
-textarea{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line-dark);font-size:13px;font-family:inherit;background:#fff;resize:vertical;min-height:60px;}
-
-/* ---------- HERO ---------- */
-.hero{
-  background:var(--ink);color:var(--paper);
-  padding:60px 0 54px;position:relative;overflow:hidden;text-align:center;
-}
+.hero{background:var(--ink);color:var(--paper);padding:56px 0 50px;text-align:center;}
 .hero .wrap{max-width:680px;}
-.eyebrow{
-  font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;
-  color:var(--gold-2);text-transform:uppercase;margin-bottom:18px;display:inline-block;
-}
-.hero h1{font-size:42px;font-weight:600;line-height:1.1;margin-bottom:16px;}
+.eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--gold-2);text-transform:uppercase;margin-bottom:18px;display:inline-block;}
+.hero h1{font-size:40px;font-weight:600;line-height:1.1;margin-bottom:16px;}
 .hero h1 em{font-style:normal;color:var(--gold-2);}
-.hero p{font-size:16px;color:rgba(244,241,231,0.72);margin:0 auto 26px;max-width:480px;}
+.hero p{font-size:15.5px;color:rgba(244,241,231,0.72);margin:0 auto 24px;max-width:480px;}
 .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-.btn{
-  padding:13px 26px;border-radius:10px;font-weight:700;font-size:14.5px;
-  display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease;
-}
+.btn{padding:13px 26px;border-radius:10px;font-weight:700;font-size:14.5px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease;}
 .btn:hover{transform:translateY(-2px);}
 .btn-gold{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:var(--ink);}
 .btn-ghost{border:1px solid var(--line);color:var(--paper);}
-.hero-stats{display:flex;gap:26px;justify-content:center;margin-top:32px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:12px;color:rgba(244,241,231,0.55);}
+.hero-stats{display:flex;gap:26px;justify-content:center;margin-top:30px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:12px;color:rgba(244,241,231,0.55);}
 .hero-stats b{color:var(--gold-2);font-size:14px;display:block;}
 
-/* ---------- Chaqmoq Savdo ticker strip ---------- */
-.ticker-strip{
-  background:var(--gold);color:var(--ink);overflow:hidden;position:relative;
-  border-top:1px solid rgba(0,0,0,0.08);
-}
-.ticker-track{
-  display:flex;gap:48px;white-space:nowrap;padding:9px 0;
-  animation:scroll-left 22s linear infinite;width:max-content;
-}
+.ticker-strip{background:var(--gold);color:var(--ink);overflow:hidden;border-top:1px solid rgba(0,0,0,0.08);}
+.ticker-track{display:flex;gap:48px;white-space:nowrap;padding:9px 0;animation:scroll-left 22s linear infinite;width:max-content;}
 .ticker-strip:hover .ticker-track{animation-play-state:paused;}
 @keyframes scroll-left{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 .ticker-item{font-family:'Space Mono',monospace;font-size:12.5px;font-weight:700;display:flex;align-items:center;gap:8px;}
 .ticker-item .arrow-down{color:#7a2f28;}
 
-/* ---------- SECTIONS ---------- */
-section{padding:64px 0;}
-.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px;gap:20px;}
-.section-head h2{font-size:28px;font-weight:600;}
+section{padding:58px 0;}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;gap:20px;}
+.section-head h2{font-size:26px;font-weight:600;}
 .section-head .num{font-family:'Space Mono',monospace;color:var(--crimson);font-size:13px;margin-right:8px;}
-.section-sub{color:rgba(15,27,51,0.55);font-size:14px;max-width:420px;}
+.section-sub{color:rgba(15,27,51,0.55);font-size:14px;max-width:440px;}
 
-/* Bozorchalar (category chips) */
 .bozorchalar{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
-.bozor-item{
-  background:#fff;border:1px solid var(--line-dark);border-radius:16px;
-  padding:22px 14px;text-align:center;transition:.18s ease;
-}
+.bozor-item{background:#fff;border:1px solid var(--line-dark);border-radius:16px;padding:22px 14px;text-align:center;transition:.18s ease;}
 .bozor-item:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 12px 24px -14px rgba(15,27,51,0.25);}
 .bozor-item .emoji{font-size:26px;margin-bottom:10px;display:block;}
 .bozor-item .name{font-weight:700;font-size:13.5px;}
 .bozor-item .sub{font-size:11px;color:rgba(15,27,51,0.5);margin-top:2px;}
 
-/* Chaqmoq Savdo (flash sale) */
+.filter-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:22px;background:#fff;border:1px solid var(--line-dark);border-radius:14px;padding:12px 14px;}
+.filter-bar select, .filter-bar input{padding:8px 12px;border-radius:8px;border:1px solid var(--line-dark);font-size:12.5px;font-family:'Manrope',sans-serif;background:var(--paper);color:var(--ink);}
+.filter-bar .price-filter{display:flex;align-items:center;gap:6px;}
+.filter-bar .price-filter input{width:100px;}
+.filter-bar label.form-check{font-size:12.5px;color:var(--ink);}
+.filter-bar .result-count{margin-left:auto;font-size:12px;color:rgba(15,27,51,0.5);font-family:'Space Mono',monospace;}
+
+.store-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.store-card{background:#fff;border:1px solid var(--line-dark);border-radius:16px;padding:18px;transition:.18s ease;}
+.store-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 14px 26px -16px rgba(15,27,51,0.25);}
+.store-card h4{font-size:15px;margin-bottom:4px;}
+.store-card .cat{font-size:11.5px;color:rgba(15,27,51,0.5);margin-bottom:8px;}
+.store-card .addr{font-size:12px;color:rgba(15,27,51,0.6);margin-bottom:10px;min-height:32px;}
+.store-card .svc{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+
 .flash{background:var(--ink);color:var(--paper);border-radius:24px;padding:36px;margin:0 28px;}
 .flash-inner{max-width:1144px;margin:0 auto;}
 .flash-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px;flex-wrap:wrap;gap:16px;}
@@ -205,18 +109,11 @@ section{padding:64px 0;}
 .countdown .colon{opacity:0.5;}
 .countdown-label{font-size:11px;color:rgba(244,241,231,0.5);text-align:center;margin-top:4px;}
 
-/* Product grid */
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-.card{
-  background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--line-dark);
-  display:flex;flex-direction:column;transition:.18s ease;position:relative;
-}
+.card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--line-dark);display:flex;flex-direction:column;transition:.18s ease;position:relative;}
 .card:hover{transform:translateY(-5px);box-shadow:0 18px 34px -18px rgba(15,27,51,0.3);}
 .flash .card{background:rgba(244,241,231,0.05);border-color:var(--line);color:var(--paper);}
-.card-img{
-  aspect-ratio:1/1;background:linear-gradient(135deg,#e9e4d3,#d8d2bd);
-  display:flex;align-items:center;justify-content:center;font-size:40px;position:relative;overflow:hidden;
-}
+.card-img{aspect-ratio:1/1;background:linear-gradient(135deg,#e9e4d3,#d8d2bd);display:flex;align-items:center;justify-content:center;font-size:40px;position:relative;overflow:hidden;}
 .flash .card-img{background:linear-gradient(135deg,#233158,#16244A);}
 .badge-row{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:6px;z-index:2;}
 .tag{font-family:'Space Mono',monospace;font-size:9.5px;font-weight:700;padding:4px 8px;border-radius:5px;letter-spacing:0.3px;}
@@ -224,11 +121,7 @@ section{padding:64px 0;}
 .tag-dokon{background:var(--ink);color:var(--gold-2);}
 .tag-vip{background:var(--crimson);color:#fff;}
 .tag-top{background:var(--gold);color:var(--ink);}
-.wish-btn{
-  position:absolute;top:10px;right:10px;width:32px;height:32px;border-radius:50%;
-  background:rgba(255,255,255,0.85);display:flex;align-items:center;justify-content:center;font-size:15px;
-  transition:.15s;z-index:2;
-}
+.wish-btn{position:absolute;top:10px;right:10px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.85);display:flex;align-items:center;justify-content:center;font-size:15px;transition:.15s;z-index:2;}
 .flash .wish-btn{background:rgba(244,241,231,0.15);}
 .wish-btn.on{background:var(--crimson);color:#fff;}
 .card-body{padding:14px 14px 16px;display:flex;flex-direction:column;gap:6px;flex:1;}
@@ -239,55 +132,37 @@ section{padding:64px 0;}
 .price-now{font-family:'Space Mono',monospace;font-weight:700;font-size:16px;}
 .price-old{font-family:'Space Mono',monospace;font-size:12px;color:rgba(15,27,51,0.4);text-decoration:line-through;}
 .flash .price-old{color:rgba(244,241,231,0.4);}
-.add-btn{
-  margin-top:10px;background:var(--ink);color:var(--paper);padding:10px;border-radius:9px;
-  font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;
-}
+.add-btn{margin-top:10px;background:var(--ink);color:var(--paper);padding:10px;border-radius:9px;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;}
 .flash .add-btn{background:var(--gold);color:var(--ink);}
 .add-btn:hover{opacity:0.88;}
+.qv-btn{position:absolute;bottom:10px;right:10px;background:rgba(15,27,51,0.75);color:#fff;font-size:10.5px;font-weight:700;padding:5px 9px;border-radius:6px;z-index:2;}
 
-/* VIP Ball / loyalty banner */
-.loyalty{
-  background:linear-gradient(120deg,#fff,#F4F1E7);border:1px solid var(--line-dark);
-  border-radius:22px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;
-}
+.loyalty{background:linear-gradient(120deg,#fff,#F4F1E7);border:1px solid var(--line-dark);border-radius:22px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;}
 .tier-track{display:flex;gap:0;margin-top:18px;}
 .tier-step{flex:1;text-align:center;position:relative;padding-top:18px;}
-.tier-step::before{
-  content:'';position:absolute;top:5px;left:-50%;width:100%;height:3px;background:var(--line-dark);z-index:0;
-}
+.tier-step::before{content:'';position:absolute;top:5px;left:-50%;width:100%;height:3px;background:var(--line-dark);z-index:0;}
 .tier-step:first-child::before{display:none;}
 .tier-step.done::before{background:var(--gold);}
-.tier-dot{
-  width:12px;height:12px;border-radius:50%;background:var(--line-dark);
-  position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:1;
-}
+.tier-dot{width:12px;height:12px;border-radius:50%;background:var(--line-dark);position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:1;}
 .tier-step.done .tier-dot{background:var(--gold);}
 .tier-step .tname{font-size:11.5px;font-weight:700;margin-top:2px;}
 .tier-step .tperk{font-size:10px;color:rgba(15,27,51,0.5);}
 .loyalty-calc{background:var(--ink);color:var(--paper);border-radius:16px;padding:24px;}
 .loyalty-calc h3{font-size:16px;margin-bottom:14px;}
 .calc-row{display:flex;gap:10px;margin-bottom:12px;}
-.calc-row input, .calc-row select{
-  flex:1;padding:10px 12px;border-radius:8px;border:1px solid var(--line);
-  background:rgba(244,241,231,0.07);color:var(--paper);font-size:13px;font-family:'Space Mono',monospace;
-}
+.calc-row input, .calc-row select{flex:1;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:rgba(244,241,231,0.07);color:var(--paper);font-size:13px;font-family:'Space Mono',monospace;}
 .calc-out{background:rgba(244,241,231,0.06);border-radius:10px;padding:14px;font-family:'Space Mono',monospace;font-size:13px;display:flex;justify-content:space-between;margin-top:6px;}
 .calc-out b{color:var(--gold-2);font-size:16px;}
 
-/* Delivery / map section */
 .map-section .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
-.map-box{
-  background:#fff;border:1px solid var(--line-dark);border-radius:20px;padding:16px;overflow:hidden;
-}
-.map-box iframe{width:100%;height:280px;border:0;border-radius:12px;display:block;}
+.map-box{background:#fff;border:1px solid var(--line-dark);border-radius:20px;padding:16px;overflow:hidden;}
+.map-box iframe{width:100%;height:260px;border:0;border-radius:12px;display:block;}
 .radar-steps{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
 .radar-step{display:flex;gap:10px;align-items:center;font-size:13px;}
 .radar-step .dot{width:8px;height:8px;border-radius:50%;background:var(--line-dark);}
 .radar-step.on .dot{background:var(--sage);}
 .radar-step.on{font-weight:700;}
 
-/* Footer */
 footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;margin-top:20px;}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:32px;padding-bottom:34px;border-bottom:1px solid var(--line);}
 .foot-grid h4{color:var(--paper);font-size:13px;margin-bottom:14px;letter-spacing:0.4px;}
@@ -300,13 +175,9 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
 .admin-link{color:rgba(244,241,231,0.4);font-size:12px;}
 .admin-link:hover{color:var(--gold-2);}
 
-/* Cart drawer */
 .overlay{position:fixed;inset:0;background:rgba(15,27,51,0.5);z-index:90;opacity:0;pointer-events:none;transition:.25s;}
 .overlay.show{opacity:1;pointer-events:auto;}
-.drawer{
-  position:fixed;top:0;right:0;height:100%;width:380px;max-width:90vw;background:var(--paper);
-  z-index:91;transform:translateX(100%);transition:.3s ease;display:flex;flex-direction:column;box-shadow:-20px 0 40px rgba(0,0,0,0.2);
-}
+.drawer{position:fixed;top:0;right:0;height:100%;width:380px;max-width:90vw;background:var(--paper);z-index:91;transform:translateX(100%);transition:.3s ease;display:flex;flex-direction:column;box-shadow:-20px 0 40px rgba(0,0,0,0.2);}
 .drawer.show{transform:translateX(0);}
 .drawer-head{padding:20px;border-bottom:1px solid var(--line-dark);display:flex;justify-content:space-between;align-items:center;}
 .drawer-head h3{font-size:18px;}
@@ -323,11 +194,10 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
 .drawer-foot .btn{width:100%;justify-content:center;}
 .close-x{width:32px;height:32px;border-radius:50%;background:rgba(15,27,51,0.06);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
 
-/* Generic modal system: admin / checkout / password gate */
 .modal-overlay{position:fixed;inset:0;background:rgba(15,27,51,0.55);z-index:120;display:none;align-items:center;justify-content:center;padding:20px;}
 .modal-overlay.show{display:flex;}
 .modal-box{background:var(--paper);border-radius:18px;padding:26px;width:100%;max-width:420px;max-height:88vh;overflow-y:auto;position:relative;}
-.modal-box.wide{max-width:760px;}
+.modal-box.wide{max-width:820px;}
 .modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
 .modal-head h3{font-size:18px;}
 .form-field{margin-bottom:12px;}
@@ -340,6 +210,8 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
 .admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
 .admin-list{display:flex;flex-direction:column;gap:8px;max-height:420px;overflow-y:auto;}
 .admin-row{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line-dark);border-radius:10px;padding:8px 10px;}
+.security-note{background:#fdf3d9;border:1px solid #e3c569;border-radius:10px;padding:10px 12px;font-size:11.5px;color:#6b5417;margin-bottom:12px;line-height:1.5;}
+.pw-mask{cursor:pointer;text-decoration:underline dotted;}
 .admin-row-thumb{width:38px;height:38px;border-radius:8px;background:#eee;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:18px;flex-shrink:0;}
 .admin-row-thumb img{width:100%;height:100%;object-fit:cover;}
 .admin-row-info{flex:1;overflow:hidden;}
@@ -349,27 +221,88 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
 .admin-row-actions button{width:28px;height:28px;border-radius:6px;background:rgba(15,27,51,0.06);}
 .img-preview{width:56px;height:56px;border-radius:8px;object-fit:cover;margin-top:8px;border:1px solid var(--line-dark);background:#eee;}
 .form-note{font-size:11px;color:rgba(15,27,51,0.5);margin-top:-6px;margin-bottom:12px;}
-.admin-tabs{display:flex;gap:8px;margin-bottom:18px;border-bottom:1px solid var(--line-dark);}
-.admin-tab{padding:10px 14px;font-size:13px;font-weight:700;color:rgba(15,27,51,0.5);border-bottom:2px solid transparent;position:relative;}
+textarea{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line-dark);font-size:13px;font-family:inherit;background:#fff;resize:vertical;min-height:60px;}
+
+.admin-tabs{display:flex;gap:6px;margin-bottom:18px;border-bottom:1px solid var(--line-dark);flex-wrap:wrap;}
+.admin-tab{padding:10px 12px;font-size:12.5px;font-weight:700;color:rgba(15,27,51,0.5);border-bottom:2px solid transparent;position:relative;white-space:nowrap;}
 .admin-tab.on{color:var(--ink);border-bottom-color:var(--gold);}
-.order-badge-new{
-  display:inline-flex;align-items:center;justify-content:center;background:var(--crimson);color:#fff;
-  font-size:10px;font-weight:700;min-width:16px;height:16px;border-radius:999px;padding:0 4px;margin-left:6px;
-}
+.order-badge-new{display:inline-flex;align-items:center;justify-content:center;background:var(--crimson);color:#fff;font-size:10px;font-weight:700;min-width:16px;height:16px;border-radius:999px;padding:0 4px;margin-left:6px;}
 .order-card{background:#fff;border:1px solid var(--line-dark);border-radius:12px;padding:14px;margin-bottom:10px;}
 .order-card-head{display:flex;justify-content:space-between;align-items:center;}
 .order-items{margin-top:8px;border-top:1px dashed var(--line-dark);padding-top:8px;}
 .order-empty{text-align:center;color:rgba(15,27,51,0.45);font-size:13px;padding:30px 0;}
+.order-status-row{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap;}
+.status-chip{font-family:'Space Mono',monospace;font-size:10.5px;font-weight:700;padding:5px 10px;border-radius:6px;background:var(--paper);border:1px solid var(--line-dark);}
+.status-chip.st-yangi{background:#fdf3d9;border-color:#e3c569;}
+.status-chip.st-qadoqlanmoqda{background:#e4ecf7;border-color:#9db6dd;}
+.status-chip.st-kuryerga_berildi{background:#e6f0ea;border-color:#8fbfa2;}
+.status-chip.st-yetkazildi{background:#e2f5e6;border-color:#6bbf83;color:#1c6b31;}
+.advance-btn{background:var(--ink);color:var(--gold-2);font-size:11.5px;font-weight:700;padding:6px 12px;border-radius:7px;}
+
+@keyframes badge-pulse{0%{transform:scale(1);}50%{transform:scale(1.18);}100%{transform:scale(1);}}
+.count-pill.pulse{animation:badge-pulse 1.1s ease-in-out infinite;}
+.order-card.is-new{border-color:var(--gold);box-shadow:0 0 0 2px rgba(227,178,74,0.28);}
+.new-flag{background:var(--crimson);color:#fff;font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:5px;margin-left:8px;letter-spacing:0.3px;vertical-align:middle;}
+.eta-note{font-size:11.5px;color:var(--sage);font-weight:700;margin-top:6px;}
+.courier-row{display:flex;gap:8px;margin-top:10px;}
+.courier-row input{flex:1;padding:7px 10px;border-radius:7px;border:1px solid var(--line-dark);font-size:12px;background:var(--paper);}
+.courier-row button{background:var(--sage);color:#fff;font-size:11.5px;font-weight:700;padding:0 12px;border-radius:7px;}
+.courier-shown{font-size:12px;color:rgba(15,27,51,0.6);margin-top:6px;}
+
+.track-steps{display:flex;justify-content:space-between;margin-top:16px;position:relative;}
+.track-steps::before{content:'';position:absolute;top:6px;left:0;right:0;height:2px;background:var(--line-dark);}
+.track-fill{position:absolute;top:6px;left:0;height:2px;background:var(--sage);transition:width .4s ease;z-index:0;}
+.track-step{flex:1;text-align:center;font-size:10px;color:rgba(15,27,51,0.4);position:relative;z-index:1;font-weight:600;padding:0 2px;}
+.track-step::before{content:'';display:block;width:12px;height:12px;border-radius:50%;background:var(--line-dark);margin:0 auto 6px;transition:.2s;}
+.track-step.on{color:var(--ink);}
+.track-step.on::before{background:var(--sage);}
+.track-step.current::before{background:var(--gold);box-shadow:0 0 0 4px rgba(227,178,74,0.28);}
+
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px;}
+.stat-card{background:#fff;border:1px solid var(--line-dark);border-radius:14px;padding:18px;}
+.stat-label{font-size:11.5px;color:rgba(15,27,51,0.5);margin-bottom:6px;}
+.stat-value{font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--ink);}
+.stats-table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--line-dark);}
+.stats-table th,.stats-table td{padding:10px 14px;text-align:left;font-size:12.5px;border-bottom:1px solid var(--line-dark);}
+.stats-table th{background:var(--paper);font-weight:700;color:rgba(15,27,51,0.6);font-size:11px;text-transform:uppercase;letter-spacing:0.3px;}
+.stats-table tr:last-child td{border-bottom:none;}
+
+.product-modal-img-wrap{position:relative;overflow:hidden;border-radius:14px;cursor:zoom-in;aspect-ratio:1/1;background:linear-gradient(135deg,#e9e4d3,#d8d2bd);display:flex;align-items:center;justify-content:center;font-size:70px;}
+.product-modal-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .15s ease;transform-origin:center;}
+.product-modal-img-wrap.zoomed{cursor:zoom-out;}
+.product-modal-img-wrap.zoomed img{transform:scale(2.2);}
+.zoom-hint{text-align:center;font-size:11px;color:rgba(15,27,51,0.45);margin-top:6px;}
+.size-row{display:flex;flex-wrap:wrap;gap:8px;}
+.size-btn{padding:8px 14px;border-radius:8px;border:1px solid var(--line-dark);background:#fff;font-size:13px;font-weight:600;}
+.size-btn.on{background:var(--ink);color:var(--gold-2);border-color:var(--ink);}
+.size-btn:hover{border-color:var(--gold);}
+
+.card-rating{display:flex;align-items:center;gap:5px;margin:-2px 0 2px;}
+.reviews-block{margin-top:16px;border-top:1px solid var(--line-dark);padding-top:14px;}
+.review-list{max-height:170px;overflow-y:auto;margin-top:10px;display:flex;flex-direction:column;gap:10px;}
+.review-item{background:var(--paper);border-radius:10px;padding:9px 11px;}
+.star-picker{display:flex;gap:4px;font-size:24px;color:var(--gold);margin-top:6px;}
+.star-pick{cursor:pointer;line-height:1;}
+.add-review{margin-top:14px;}
+
+.cart-toast{position:fixed;bottom:20px;right:20px;background:var(--ink);color:var(--paper);padding:14px 16px;border-radius:14px;box-shadow:0 20px 40px rgba(0,0,0,0.3);display:none;align-items:center;gap:10px;max-width:300px;z-index:85;font-size:12.5px;line-height:1.4;}
+.cart-toast.show{display:flex;}
+.cart-toast button{background:var(--gold);color:var(--ink);font-weight:700;padding:6px 10px;border-radius:8px;font-size:11.5px;flex-shrink:0;white-space:nowrap;}
+.cart-toast .toast-close{background:transparent;color:rgba(244,241,231,0.55);padding:0 2px;font-size:14px;}
+
+.payment-note{font-size:11px;color:rgba(15,27,51,0.5);margin-top:-6px;margin-bottom:12px;}
 
 @media(max-width:980px){
   .grid{grid-template-columns:repeat(2,1fr);}
   .bozorchalar{grid-template-columns:repeat(3,1fr);}
+  .store-grid{grid-template-columns:1fr 1fr;}
   .loyalty{grid-template-columns:1fr;}
   .map-section .wrap{grid-template-columns:1fr;}
   .foot-grid{grid-template-columns:1fr 1fr;}
   .search-shell{display:none;}
   .admin-grid{grid-template-columns:1fr;}
   .modal-box.wide{max-width:92vw;}
+  .stat-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -379,67 +312,55 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
   <div class="topbar">
     <div class="logo"><span>VIP MARKET</span><span class="badge">O'ZBEKISTON</span></div>
     <div class="search-shell">
-      <input type="text" id="searchInput" placeholder="Million xazina orasidan qidiring..." oninput="onSearchInput()" autocomplete="off">
+      <input type="text" id="searchInput" data-i18n-ph="search_ph" placeholder="Million xazina orasidan qidiring..." oninput="onSearchInput()" autocomplete="off">
       <button aria-label="Qidirish" onclick="runSearch()">🔍</button>
       <div class="search-suggest" id="searchSuggest"></div>
     </div>
     <div class="top-actions">
-      <div class="top-action active-hint"><span class="ic">👑</span>VIP Ball: <span id="ballCount">1 240</span></div>
-      <div class="top-action" style="position:relative">
-        <span class="ic">♡</span>Orzular
-        <span class="count-pill" id="wishCount">0</span>
-      </div>
-      <button class="top-action" style="position:relative" onclick="toggleCart(true)">
-        <span class="ic">🛍️</span>Savatcha
-        <span class="count-pill" id="cartCount">0</span>
-      </button>
-      <button class="top-action" style="position:relative" onclick="openAdminGate()">
-        <span class="ic">🔐</span>Admin
-        <span class="count-pill" id="orderBadge" style="display:none;">0</span>
-      </button>
+      <div class="top-action active-hint"><span class="ic">👑</span><span data-i18n="ball_label">Ball: 1 240</span></div>
+      <div class="top-action" style="position:relative"><span class="ic">♡</span><span data-i18n="orzular">Orzular</span><span class="count-pill" id="wishCount">0</span></div>
+      <button class="top-action" onclick="openTrackModal()"><span class="ic">📦</span><span data-i18n="kuzatish">Kuzatish</span></button>
+      <button class="top-action" style="position:relative" onclick="toggleCart(true)"><span class="ic">🛍️</span><span data-i18n="savatcha">Savatcha</span><span class="count-pill" id="cartCount">0</span></button>
+      <button class="top-action" style="position:relative" onclick="openAdminGate()"><span class="ic">🔐</span><span data-i18n="admin">Admin</span><span class="count-pill" id="orderBadge" style="display:none;">0</span></button>
+      <button class="top-action" onclick="toggleLang()"><span class="ic">🌐</span><span id="langLabel">RU</span></button>
     </div>
   </div>
   <nav class="subnav">
     <div class="wrap" id="catNav">
-      <button class="on" data-cat="all">Barchasi</button>
-      <button data-cat="kiyim">Kiyim olami</button>
-      <button data-cat="texno">Texno gumbaz</button>
-      <button data-cat="uy">Uy & oshxona</button>
-      <button data-cat="gozallik">Go'zallik burchagi</button>
-      <button data-cat="bolalar">Bolalar dunyosi</button>
-      <button data-cat="sport">Sport maydoni</button>
+      <button class="on" data-cat="all" data-i18n="cat_all">Barchasi</button>
+      <button data-cat="kiyim" data-i18n="cat_kiyim">Kiyim olami</button>
+      <button data-cat="texno" data-i18n="cat_texno">Texno gumbaz</button>
+      <button data-cat="uy" data-i18n="cat_uy">Uy & oshxona</button>
+      <button data-cat="gozallik" data-i18n="cat_gozallik">Go'zallik burchagi</button>
+      <button data-cat="bolalar" data-i18n="cat_bolalar">Bolalar dunyosi</button>
+      <button data-cat="sport" data-i18n="cat_sport">Sport maydoni</button>
     </div>
   </nav>
 </header>
 
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow">● Xarid qilishning yangi darajasi</span>
-    <h1>Har bir xaridingiz <em>VIP</em> muomalaga loyiq.</h1>
-    <p>16 000+ sotuvchi, kuniga yangilanadigan chaqmoq narxlar va VIP Ball tizimi bilan — xarid qilib, ballar to'plang, imtiyozlarga aylantiring.</p>
+    <span class="eyebrow" data-i18n="hero_eyebrow">● Ko'p do'konli VIP savdo maydoni</span>
+    <h1 data-i18n-html="hero_h1">Har bir xaridingiz <em>VIP</em> muomalaga loyiq.</h1>
+    <p data-i18n="hero_p">O'nlab mustaqil do'konlar, kuniga yangilanadigan chaqmoq narxlar va VIP Ball tizimi bilan — xarid qiling, kuzating, ishonch bilan oling.</p>
     <div class="hero-ctas">
-      <a href="#mahsulotlar" class="btn btn-gold">Xaridni boshlash →</a>
-      <a href="#vip-ball" class="btn btn-ghost">VIP darajamni ko'rish</a>
+      <a href="#mahsulotlar" class="btn btn-gold" data-i18n="hero_cta1">Xaridni boshlash →</a>
+      <a href="#dokonlar" class="btn btn-ghost" data-i18n="hero_cta2">Do'konlarni ko'rish</a>
     </div>
     <div class="hero-stats">
-      <div><b>16 000+</b>sotuvchi</div>
-      <div><b>450+</b>shahar/tuman</div>
-      <div><b>1 kun</b>ichida yetkazish</div>
+      <div><b id="storeCountStat">1</b><span data-i18n="stat_store">do'kon</span></div>
+      <div><b>450+</b><span data-i18n="stat_region">shahar/tuman</span></div>
+      <div><b data-i18n="stat_1day">1 kun</b><span data-i18n="stat_delivery">ichida yetkazish</span></div>
     </div>
   </div>
 </section>
 
-<div class="ticker-strip">
-  <div class="ticker-track" id="tickerTrack"></div>
-</div>
+<div class="ticker-strip"><div class="ticker-track" id="tickerTrack"></div></div>
 
 <section>
   <div class="wrap">
     <div class="section-head">
-      <div>
-        <h2><span class="num">01</span>Bozorchalar</h2>
-        <p class="section-sub">Har bir bozorcha — o'zining kichik olami. Kerakli burchakni tanlang.</p>
-      </div>
+      <div><h2><span class="num">01</span><span data-i18n="sec_bozor">Bozorchalar</span></h2><p class="section-sub">Har bir bozorcha — o'zining kichik olami. Kerakli burchakni tanlang.</p></div>
     </div>
     <div class="bozorchalar">
       <div class="bozor-item"><span class="emoji">👗</span><span class="name">Kiyim olami</span><span class="sub">2 400+ mahsulot</span></div>
@@ -452,16 +373,33 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
   </div>
 </section>
 
+<section id="dokonlar">
+  <div class="wrap">
+    <div class="section-head">
+      <div><h2><span class="num">02</span><span data-i18n="sec_dokonlar">Do'konlar</span></h2><p class="section-sub">Hudud va yo'nalish bo'yicha tanlang — har bir do'kon o'z mahsulotlari va yetkazish xizmatiga ega.</p></div>
+    </div>
+    <div class="filter-bar">
+      <select id="sRegion" onchange="renderStores()"><option value="all">Hudud: barchasi</option></select>
+      <select id="sCategory" onchange="renderStores()"><option value="all">Yo'nalish: barchasi</option></select>
+      <span class="result-count" id="storeResultCount"></span>
+    </div>
+    <div class="store-grid" id="storeGrid"></div>
+    <div style="text-align:center;margin-top:24px;">
+      <button class="btn btn-ghost" style="border:1px solid var(--line-dark);color:var(--ink);" onclick="openStoreRequestModal()">🏬 Do'kon sifatida qo'shilish</button>
+    </div>
+  </div>
+</section>
+
 <div class="wrap">
   <div class="flash">
     <div class="flash-inner">
       <div class="flash-head">
         <div>
-          <h2><span class="num" style="color:var(--gold-2)">02</span>Chaqmoq Savdo</h2>
+          <h2><span class="num" style="color:var(--gold-2)">03</span><span data-i18n="sec_flash">Chaqmoq Savdo</span></h2>
           <p style="color:rgba(244,241,231,0.55);font-size:13.5px;margin-top:4px;">Bugungi narxlar — quyosh botguncha. Keyin yangi partiya boshlanadi.</p>
         </div>
         <div style="text-align:right">
-          <div class="countdown" id="countdown">
+          <div class="countdown">
             <div><div class="box" id="cd-h">00</div><div class="countdown-label">soat</div></div>
             <span class="colon">:</span>
             <div><div class="box" id="cd-m">00</div><div class="countdown-label">daqiqa</div></div>
@@ -478,12 +416,10 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
 <section id="mahsulotlar">
   <div class="wrap">
     <div class="section-head">
-      <div>
-        <h2><span class="num">03</span>Barcha mahsulotlar</h2>
-        <p class="section-sub">Kategoriya bo'yicha filtrlang yoki qidiruvdan foydalaning. Mahsulotlar faqat VIP MARKET adminlari tomonidan qo'shiladi.</p>
-      </div>
+      <div><h2><span class="num">04</span><span data-i18n="sec_products">Barcha mahsulotlar</span></h2><p class="section-sub">Kategoriya, do'kon yoki qidiruv bo'yicha filtrlang.</p></div>
     </div>
     <div class="filter-bar">
+      <select id="fStore" onchange="onFilterChange()"><option value="all">Do'kon: barchasi</option></select>
       <select id="fSort" onchange="onFilterChange()">
         <option value="default">Saralash: standart</option>
         <option value="price_asc">Narx: arzondan qimmatga</option>
@@ -495,11 +431,7 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
         <option value="uyga">Faqat uyga yetkazish</option>
         <option value="dokon">Faqat do'kondan olish</option>
       </select>
-      <div class="price-filter">
-        <input type="number" id="fMin" placeholder="Min narx" oninput="onFilterChange()">
-        <span>—</span>
-        <input type="number" id="fMax" placeholder="Max narx" oninput="onFilterChange()">
-      </div>
+      <div class="price-filter"><input type="number" id="fMin" placeholder="Min narx" oninput="onFilterChange()"><span>—</span><input type="number" id="fMax" placeholder="Max narx" oninput="onFilterChange()"></div>
       <label class="form-check" style="margin:0;"><input type="checkbox" id="fDiscount" onchange="onFilterChange()"> Faqat chegirmali</label>
       <span class="result-count" id="resultCount"></span>
     </div>
@@ -513,9 +445,7 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
       <div>
         <span class="eyebrow" style="color:var(--crimson)">VIP Ball tizimi</span>
         <h2 style="font-size:24px;margin-top:8px;">Har 10 000 so'm xarid = 1 VIP Ball</h2>
-        <p style="font-size:13.5px;color:rgba(15,27,51,0.6);margin-top:8px;max-width:400px;">
-          Ballarni chegirma, tezkor yetkazish yoki eksklyuziv mahsulotlarga almashtiring.
-        </p>
+        <p style="font-size:13.5px;color:rgba(15,27,51,0.6);margin-top:8px;max-width:400px;">Ballarni chegirma, tezkor yetkazish yoki eksklyuziv mahsulotlarga almashtiring.</p>
         <div class="tier-track">
           <div class="tier-step done"><div class="tier-dot"></div><div class="tname">Kumush</div><div class="tperk">0 ball</div></div>
           <div class="tier-step done"><div class="tier-dot"></div><div class="tname">Oltin</div><div class="tperk">500 ball</div></div>
@@ -526,17 +456,10 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
         <h3>Muddatli To'lov Hisoblagichi</h3>
         <div class="calc-row">
           <input type="number" id="calcPrice" placeholder="Mahsulot narxi (so'm)" value="1200000">
-          <select id="calcMonths">
-            <option value="3">3 oy</option>
-            <option value="6" selected>6 oy</option>
-            <option value="12">12 oy</option>
-          </select>
+          <select id="calcMonths"><option value="3">3 oy</option><option value="6" selected>6 oy</option><option value="12">12 oy</option></select>
         </div>
         <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="calcInstallment()">Hisoblash</button>
-        <div class="calc-out">
-          <span>Oyiga to'lov:</span>
-          <b id="calcResult">200 000 so'm</b>
-        </div>
+        <div class="calc-out"><span>Oyiga to'lov:</span><b id="calcResult">200 000 so'm</b></div>
       </div>
     </div>
   </div>
@@ -546,20 +469,18 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
   <div class="wrap">
     <div>
       <span class="eyebrow" style="color:var(--sage)">Yetkazib berish va manzil</span>
-      <h2 style="font-size:26px;margin-top:8px;margin-bottom:14px;">Do'konimiz qayerda — xaritada ko'ring</h2>
-      <p style="font-size:13.5px;color:rgba(15,27,51,0.6);max-width:400px;margin-bottom:20px;">
-        Har bir mahsulot uchun admin "Uyga yetkazib berish" yoki "Do'kondan olib ketish" turini belgilaydi. Buyurtma berayotganda shu ma'lumot va xarita sizga ko'rsatiladi.
-      </p>
+      <h2 style="font-size:24px;margin-top:8px;margin-bottom:14px;">Bosh do'konimiz qayerda</h2>
+      <p style="font-size:13.5px;color:rgba(15,27,51,0.6);max-width:400px;margin-bottom:20px;">Har bir do'kon o'zining manzili va yetkazish turini admin panelida belgilaydi. Buyurtma berayotganda shu ma'lumot sizga ko'rsatiladi.</p>
       <div class="radar-steps">
-        <div class="radar-step on"><span class="dot"></span>Buyurtma qabul qilindi</div>
-        <div class="radar-step on"><span class="dot"></span>VIP omborida yig'ildi</div>
-        <div class="radar-step"><span class="dot"></span>Kuryerga topshirildi / Do'konda tayyor</div>
+        <div class="radar-step on"><span class="dot"></span>Qabul qilindi</div>
+        <div class="radar-step"><span class="dot"></span>Qadoqlanmoqda</div>
+        <div class="radar-step"><span class="dot"></span>Kuryerga berildi / Tayyor</div>
         <div class="radar-step"><span class="dot"></span>Yetkazildi</div>
       </div>
     </div>
     <div class="map-box">
       <iframe src="https://www.google.com/maps?q=41.2995,69.2401&z=15&output=embed" loading="lazy" title="VIP MARKET do'kon manzili"></iframe>
-      <div style="padding:12px 6px 4px;font-size:12.5px;color:rgba(15,27,51,0.6);">📍 VIP MARKET rasmiy do'koni — Toshkent sh., Chilonzor tumani, Bunyodkor shoh ko'chasi 1</div>
+      <div style="padding:12px 6px 4px;font-size:12.5px;color:rgba(15,27,51,0.6);">📍 VIP MARKET Bosh do'koni — Toshkent sh., Chilonzor tumani, Bunyodkor shoh ko'chasi 1</div>
     </div>
   </div>
 </section>
@@ -569,118 +490,127 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
     <div class="foot-grid">
       <div>
         <div class="logo" style="margin-bottom:12px;"><span>VIP MARKET</span></div>
-        <p style="font-size:13px;max-width:260px;">O'zbekistondagi VIP darajadagi onlayn savdo maydoni. Har bir xaridor — bizning VIP mehmonimiz.</p>
+        <p style="font-size:13px;max-width:260px;">O'zbekistondagi ko'p do'konli VIP darajadagi onlayn savdo maydoni.</p>
       </div>
-      <div>
-        <h4>Xaridorlar uchun</h4>
-        <ul><li><a href="#">Buyurtmalarim</a></li><li><a href="#mahsulotlar">Barcha mahsulotlar</a></li><li><a href="#">Qaytarish siyosati</a></li></ul>
-      </div>
-      <div>
-        <h4>VIP Market haqida</h4>
-        <ul><li><a href="#">Biz haqimizda</a></li><li><a href="#" onclick="openAdminGate();return false;">Admin panel</a></li><li><a href="#">Vakansiyalar</a></li></ul>
-      </div>
+      <div><h4>Xaridorlar uchun</h4><ul><li><a href="#" onclick="openTrackModal();return false;">Buyurtmani kuzatish</a></li><li><a href="#mahsulotlar">Barcha mahsulotlar</a></li><li><a href="#dokonlar">Do'konlar</a></li></ul></div>
+      <div><h4>VIP Market haqida</h4><ul><li><a href="#" onclick="openStoreRequestModal();return false;">Do'kon sifatida qo'shilish</a></li><li><a href="#" onclick="openAdminGate();return false;">Admin panel</a></li><li><a href="#">Vakansiyalar</a></li></ul></div>
       <div class="club-box">
         <h4 style="margin-bottom:4px;">VIP Klub</h4>
         <p style="font-size:12px;color:rgba(244,241,231,0.55)">Chaqmoq savdolar haqida birinchi bo'lib xabar oling.</p>
-        <input type="email" placeholder="Email manzilingiz">
-        <button>A'zo bo'lish</button>
+        <input type="email" placeholder="Email manzilingiz"><button>A'zo bo'lish</button>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>© 2026 VIP MARKET. Barcha huquqlar himoyalangan.</span>
-      <a href="#" class="admin-link" onclick="openAdminGate();return false;">🔐 Admin kirish</a>
-    </div>
+    <div class="foot-bottom"><span>© 2026 VIP MARKET. Barcha huquqlar himoyalangan.</span><a href="#" class="admin-link" onclick="openAdminGate();return false;">🔐 Admin kirish</a></div>
   </div>
 </footer>
 
-<!-- Cart drawer -->
 <div class="overlay" id="overlay" onclick="toggleCart(false)"></div>
 <div class="drawer" id="cartDrawer">
-  <div class="drawer-head">
-    <h3>Savatcha</h3>
-    <button class="close-x" onclick="toggleCart(false)">✕</button>
-  </div>
-  <div class="drawer-body" id="drawerBody">
-    <div class="drawer-empty">Savatcha bo'sh. Chaqmoq savdodan boshlang!</div>
-  </div>
+  <div class="drawer-head"><h3 data-i18n="savatcha">Savatcha</h3><button class="close-x" onclick="toggleCart(false)">✕</button></div>
+  <div class="drawer-body" id="drawerBody"><div class="drawer-empty" data-i18n="cart_empty">Savatcha bo'sh. Chaqmoq savdodan boshlang!</div></div>
   <div class="drawer-foot">
-    <div class="sum"><span>Jami:</span><span id="drawerTotal">0 so'm</span></div>
-    <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="openCheckout()">Buyurtmani rasmiylashtirish</button>
+    <div class="sum"><span data-i18n="jami">Jami:</span><span id="drawerTotal">0 so'm</span></div>
+    <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="openCheckout()" data-i18n="checkout_btn">Buyurtmani rasmiylashtirish</button>
   </div>
 </div>
 
-<!-- Password gate modal -->
+<!-- Password gate -->
 <div class="modal-overlay" id="passModalOverlay">
   <div class="modal-box">
     <div class="modal-head"><h3>🔐 Admin kirish</h3><button class="close-x" onclick="closeAdminGate()">✕</button></div>
-    <div class="form-field"><label>Admin paroli</label><input type="password" id="passInput" placeholder="Parolni kiriting"></div>
+    <div class="form-field"><label>Parol</label><input type="password" id="passInput" placeholder="Parolni kiriting"></div>
+    <div class="form-note">Bosh admin paroli platformani, do'kon paroli esa faqat o'sha do'konni boshqaradi.</div>
     <div class="pass-error" id="passError">Noto'g'ri parol. Qaytadan urinib ko'ring.</div>
     <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:10px;" onclick="checkAdminPassword()">Kirish</button>
   </div>
 </div>
 
-<!-- Admin panel modal -->
+<!-- Admin panel -->
 <div class="modal-overlay" id="adminModalOverlay">
   <div class="modal-box wide">
-    <div class="modal-head">
-      <h3>🔐 Admin panel</h3>
-      <button class="close-x" onclick="closeAdminPanel()">✕</button>
-    </div>
+    <div class="modal-head"><h3 id="adminPanelTitle">🔐 Admin panel</h3><button class="close-x" onclick="closeAdminPanel()">✕</button></div>
     <div class="admin-tabs">
-      <button class="admin-tab on" id="tabProductsBtn" onclick="switchAdminTab('products')">Mahsulotlar</button>
-      <button class="admin-tab" id="tabOrdersBtn" onclick="switchAdminTab('orders')">📦 Buyurtmalar<span class="order-badge-new" id="orderBadgeInline" style="display:none;"></span></button>
+      <button class="admin-tab on" id="tabProductsBtn" onclick="switchAdminTab('products')">📦 Mahsulotlar</button>
+      <button class="admin-tab" id="tabOrdersBtn" onclick="switchAdminTab('orders')">🧾 Buyurtmalar<span class="order-badge-new" id="orderBadgeInline" style="display:none;"></span></button>
+      <button class="admin-tab" id="tabStatsBtn" onclick="switchAdminTab('stats')">📊 Statistika</button>
+      <button class="admin-tab" id="tabStoresBtn" onclick="switchAdminTab('stores')">🏬 Do'konlar</button>
+      <button class="admin-tab" id="tabRequestsBtn" onclick="switchAdminTab('requests')">📥 So'rovlar<span class="order-badge-new" id="reqBadgeInline" style="display:none;"></span></button>
     </div>
+
     <div id="adminProductsTab">
       <div class="admin-grid">
         <div>
+          <div class="form-field" id="apStoreField"><label>Do'kon</label><select id="apStore"></select></div>
           <div class="form-field"><label>Mahsulot nomi</label><input id="apTitle" placeholder="Masalan: Erkaklar kurtkasi"></div>
           <div class="form-field"><label>Narxi (so'm)</label><input id="apPrice" type="number" placeholder="640000"></div>
           <div class="form-field"><label>Eski narx (chegirma uchun, ixtiyoriy)</label><input id="apOld" type="number" placeholder="890000"></div>
           <div class="form-field"><label>Tavsif (ixtiyoriy)</label><textarea id="apDesc" placeholder="Mahsulot haqida qisqacha ma'lumot..."></textarea></div>
-          <div class="form-field"><label>O'lchamlar (ixtiyoriy — kiyim/oyoq kiyim uchun)</label><input id="apSizes" placeholder="Masalan: 39,40,41,42,43 yoki S,M,L,XL"></div>
-          <div class="form-note" style="margin-top:-6px;">Bo'sh qoldirsangiz, xaridor to'g'ridan-to'g'ri "Savatchaga qo'shish" tugmasini bosadi. To'ldirsangiz, xaridor avval o'lcham tanlashi shart bo'ladi.</div>
+          <div class="form-field"><label>O'lchamlar (ixtiyoriy)</label><input id="apSizes" placeholder="Masalan: 39,40,41,42 yoki S,M,L,XL"></div>
           <div class="form-field"><label>Kategoriya</label>
             <select id="apCat">
-              <option value="kiyim">Kiyim olami</option>
-              <option value="texno">Texno gumbaz</option>
-              <option value="uy">Uy & oshxona</option>
-              <option value="gozallik">Go'zallik burchagi</option>
-              <option value="bolalar">Bolalar dunyosi</option>
-              <option value="sport">Sport maydoni</option>
+              <option value="kiyim">Kiyim olami</option><option value="texno">Texno gumbaz</option><option value="uy">Uy & oshxona</option>
+              <option value="gozallik">Go'zallik burchagi</option><option value="bolalar">Bolalar dunyosi</option><option value="sport">Sport maydoni</option>
             </select>
           </div>
           <div class="form-field"><label>Rasm manzili (URL)</label><input id="apImgUrl" placeholder="https://..." oninput="previewFromUrl()"></div>
           <div class="form-field"><label>Yoki rasmni kompyuterdan yuklash</label><input type="file" id="apImgFile" accept="image/*"></div>
           <img id="apImgPreview" class="img-preview" style="display:none;">
           <div class="form-field" style="margin-top:12px;"><label>Sotuv turi</label>
-            <div class="form-check"><input type="checkbox" id="apDokon" checked><label for="apDokon" style="margin:0;">Rasmiy do'kondan olib ketish</label></div>
-            <div class="form-check"><input type="checkbox" id="apUyga" checked><label for="apUyga" style="margin:0;">Uyga yetkazib berish</label></div>
+            <div class="form-check"><input type="checkbox" id="apDokon" checked><label style="margin:0;">Rasmiy do'kondan olib ketish</label></div>
+            <div class="form-check"><input type="checkbox" id="apUyga" checked><label style="margin:0;">Uyga yetkazib berish</label></div>
           </div>
-          <div class="form-field"><label>Belgi (ixtiyoriy)</label>
-            <select id="apTag">
-              <option value="">Yo'q</option>
-              <option value="vip">VIP narx</option>
-              <option value="top">Top tanlov</option>
-            </select>
-          </div>
+          <div class="form-field"><label>Belgi (ixtiyoriy)</label><select id="apTag"><option value="">Yo'q</option><option value="vip">VIP narx</option><option value="top">Top tanlov</option></select></div>
           <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="saveProduct()" id="apSaveBtn">Mahsulot qo'shish</button>
-          <div class="form-note" style="margin-top:8px;">Eslatma: bu — dizayn namunasi. Qo'shilgan mahsulotlar shu sahifa ochiq turgan vaqtda saqlanadi; haqiqiy do'kon uchun buni serverga (bazaga) ulash kerak bo'ladi.</div>
         </div>
         <div>
-          <label style="display:block;font-size:12px;font-weight:700;margin-bottom:8px;color:rgba(15,27,51,0.6);">Joriy mahsulotlar (<span id="apCount">0</span>)</label>
+          <label style="display:block;font-size:12px;font-weight:700;margin-bottom:8px;color:rgba(15,27,51,0.6);">Mahsulotlar (<span id="apCount">0</span>)</label>
           <div class="admin-list" id="adminList"></div>
           <button class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:14px;border:1px solid var(--line-dark);" onclick="adminLogout()">Adminlikdan chiqish</button>
         </div>
       </div>
     </div>
+
     <div id="adminOrdersTab" style="display:none;">
       <label style="display:block;font-size:12px;font-weight:700;margin-bottom:10px;color:rgba(15,27,51,0.6);">Tushgan buyurtmalar (<span id="ordersCount">0</span>)</label>
       <div id="ordersList"></div>
     </div>
+
+    <div id="adminStatsTab" style="display:none;">
+      <div id="statsView"></div>
+    </div>
+
+    <div id="adminStoresTab" style="display:none;">
+      <div class="admin-grid">
+        <div>
+          <h4 style="margin-bottom:12px;font-size:15px;">Yangi do'kon qo'shish</h4>
+          <div class="form-field"><label>Nomi</label><input id="stName" placeholder="Masalan: Yaypan Parfumeriya"></div>
+          <div class="form-field"><label>Yo'nalish</label><input id="stCategory" placeholder="Masalan: Parfumeriya"></div>
+          <div class="form-field"><label>Hudud</label><input id="stRegion" placeholder="Masalan: Farg'ona viloyati"></div>
+          <div class="form-field"><label>Tuman</label><input id="stDirection" placeholder="Masalan: Yaypan tumani"></div>
+          <div class="form-field"><label>Manzil</label><input id="stAddress" placeholder="To'liq manzil"></div>
+          <div class="form-field"><label>Telefon</label><input id="stPhone" placeholder="+998 90 123 45 67"></div>
+          <div class="form-field"><label>Admin paroli</label><input id="stPassword" placeholder="Do'kon uchun parol"></div>
+          <div class="form-field">
+            <div class="form-check"><input type="checkbox" id="stDokon" checked><label style="margin:0;">Do'kondan olish</label></div>
+            <div class="form-check"><input type="checkbox" id="stUyga" checked><label style="margin:0;">Uyga yetkazish</label></div>
+          </div>
+          <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="addStoreManual()">Do'kon qo'shish</button>
+        </div>
+        <div>
+          <label style="display:block;font-size:12px;font-weight:700;margin-bottom:8px;">Mavjud do'konlar (<span id="storesCount">0</span>)</label>
+          <div class="admin-list" id="adminStoresList"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="adminRequestsTab" style="display:none;">
+      <label style="display:block;font-size:12px;font-weight:700;margin-bottom:10px;color:rgba(15,27,51,0.6);">Do'konga qo'shilish so'rovlari (<span id="reqCount">0</span>)</label>
+      <div id="requestsList"></div>
+    </div>
   </div>
 </div>
 
-<!-- Checkout modal -->
+<!-- Checkout -->
 <div class="modal-overlay" id="checkoutModalOverlay">
   <div class="modal-box">
     <div class="modal-head"><h3>Buyurtmani rasmiylashtirish</h3><button class="close-x" onclick="closeCheckout()">✕</button></div>
@@ -688,7 +618,7 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
   </div>
 </div>
 
-<!-- Product detail modal (zoom + sizes) -->
+<!-- Product detail modal -->
 <div class="modal-overlay" id="productModalOverlay">
   <div class="modal-box" style="max-width:440px;">
     <div class="modal-head"><h3>Mahsulot haqida</h3><button class="close-x" onclick="closeProductModal()">✕</button></div>
@@ -696,35 +626,155 @@ footer{background:var(--ink);color:rgba(244,241,231,0.7);padding:52px 0 24px;mar
   </div>
 </div>
 
+<!-- Store join request -->
+<div class="modal-overlay" id="storeReqModalOverlay">
+  <div class="modal-box">
+    <div class="modal-head"><h3>🏬 Do'kon sifatida qo'shilish</h3><button class="close-x" onclick="closeStoreRequestModal()">✕</button></div>
+    <div class="form-field"><label>Do'kon nomi</label><input id="srName" placeholder="Masalan: Yaypan Parfumeriya"></div>
+    <div class="form-field"><label>Yo'nalish (nima sotasiz)</label><input id="srCategory" placeholder="Masalan: Parfumeriya"></div>
+    <div class="form-field"><label>Hudud</label><input id="srRegion" placeholder="Masalan: Farg'ona viloyati"></div>
+    <div class="form-field"><label>Tuman/yo'nalish</label><input id="srDirection" placeholder="Masalan: Yaypan tumani"></div>
+    <div class="form-field"><label>To'liq manzil</label><input id="srAddress" placeholder="Ko'cha, uy raqami..."></div>
+    <div class="form-field"><label>Telefon raqam</label><input id="srPhone" placeholder="+998 90 123 45 67"></div>
+    <div class="form-field"><label>Xizmat turi</label>
+      <div class="form-check"><input type="checkbox" id="srDokon" checked><label style="margin:0;">Do'kondan olib ketish</label></div>
+      <div class="form-check"><input type="checkbox" id="srUyga"><label style="margin:0;">Uyga yetkazib berish</label></div>
+    </div>
+    <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="submitStoreRequest()">Ariza yuborish</button>
+  </div>
+</div>
+
+<!-- Cart abandonment reminder -->
+<div class="cart-toast" id="cartToast">
+  <span>🛒 Savatchangizda mahsulot bor — buyurtmani yakunlashni unutmang!</span>
+  <button onclick="toggleCart(true);hideCartToast();">Ko'rish</button>
+  <button class="toast-close" onclick="hideCartToast()">✕</button>
+</div>
+
+<!-- Order tracking -->
+<div class="modal-overlay" id="trackModalOverlay">
+  <div class="modal-box">
+    <div class="modal-head"><h3>📦 Buyurtmani kuzatish</h3><button class="close-x" onclick="closeTrackModal()">✕</button></div>
+    <div class="form-field"><label>Buyurtma raqami</label><input id="trackInput" placeholder="Masalan: VM-482913"></div>
+    <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="trackOrder()">Qidirish</button>
+    <div id="trackResult" style="margin-top:16px;"></div>
+  </div>
+</div>
+
 <script>
-const ADMIN_PASSWORD = '7579';
-let isAdmin = false;
-let editingId = null;
-let pendingImgData = null;
+const MASTER_PASSWORD = '7579';
+const STATUS_STEPS = ['yangi','qadoqlanmoqda','kuryerga_berildi','yetkazildi'];
+const STATUS_LABELS = {yangi:"Qabul qilindi",qadoqlanmoqda:"Qadoqlanmoqda",kuryerga_berildi:"Kuryerga berildi / Tayyor",yetkazildi:"Yetkazildi / Olib ketildi"};
+const ETA_LABELS = {yangi:"⏱ Tez orada qadoqlashni boshlaymiz",qadoqlanmoqda:"⏱ Bugun jo'natishga tayyorlanmoqda",kuryerga_berildi:"⏱ Bugun kechqurungacha yetkaziladi",yetkazildi:"✅ Buyurtma yakunlandi"};
+
+let STORES = [
+  {id:'main',name:"VIP MARKET Bosh do'koni",category:'Aralash mahsulotlar',region:'Toshkent shahri',direction:'Chilonzor',address:"Toshkent sh., Chilonzor tumani, Bunyodkor shoh ko'chasi 1",services:['dokon','uyga'],phone:'+998 71 200 00 00',password:'vip2026'},
+  {id:'yaypan',name:'Yaypan Parfumeriya',category:'Parfumeriya',region:"Farg'ona viloyati",direction:'Yaypan tumani',address:"Farg'ona viloyati, Yaypan tumani, Mustaqillik ko'chasi 12",services:['dokon'],phone:'+998 73 555 11 22',password:'yaypan2026'}
+];
+let STORE_REQUESTS = [];
 
 const PRODUCTS = [
-  {id:1,cat:'kiyim',icon:'🧥',title:"Zamonaviy erkaklar kurtkasi",price:640000,old:890000,tag:'top',delivery:['dokon','uyga'],desc:"Sovuq mavsum uchun issiq, suv o'tkazmaydigan mato. Yengil, ammo mustahkam.",sizes:['S','M','L','XL','XXL']},
-  {id:2,cat:'texno',icon:'🎧',title:"Simsiz VIP naushnik Pro",price:410000,old:520000,tag:'vip',delivery:['uyga'],desc:"Faol shovqin bostirish, 30 soatgacha batareya, Bluetooth 5.3."},
-  {id:3,cat:'uy',icon:'🍵',title:"Choy-idish to'plami, 12 dona",price:215000,old:0,tag:'',delivery:['dokon']},
-  {id:4,cat:'gozallik',icon:'💆',title:"Yuz uchun parvarish to'plami",price:180000,old:240000,tag:'top',delivery:['dokon','uyga']},
-  {id:5,cat:'bolalar',icon:'🧸',title:"Yumshoq o'yinchoq — Ayiqcha",price:95000,old:0,tag:'',delivery:['uyga']},
-  {id:6,cat:'sport',icon:'🏋️',title:"Fitnes uchun gantel to'plami",price:330000,old:0,tag:'vip',delivery:['dokon']},
-  {id:7,cat:'texno',icon:'📱',title:"Smartfon 128GB, VIP nusxa",price:3200000,old:3650000,tag:'vip',delivery:['dokon','uyga'],desc:"6.5\" ekran, 128GB xotira, ikki SIM, tezkor zaryadlash."},
-  {id:8,cat:'kiyim',icon:'👟',title:"Sport krossovkalar unisex",price:275000,old:340000,tag:'top',delivery:['dokon','uyga'],desc:"Yengil to'qima material, kunlik kiyish uchun qulay. O'lchamni aniq tanlang — almashtirish do'kon orqali amalga oshiriladi.",sizes:[38,39,40,41,42,43,44,45]},
+  {id:1,storeId:'main',cat:'kiyim',icon:'🧥',title:"Zamonaviy erkaklar kurtkasi",price:640000,old:890000,tag:'top',delivery:['dokon','uyga'],desc:"Sovuq mavsum uchun issiq, suv o'tkazmaydigan mato.",sizes:['S','M','L','XL','XXL']},
+  {id:2,storeId:'main',cat:'texno',icon:'🎧',title:"Simsiz VIP naushnik Pro",price:410000,old:520000,tag:'vip',delivery:['uyga'],desc:"Faol shovqin bostirish, 30 soatgacha batareya."},
+  {id:3,storeId:'main',cat:'uy',icon:'🍵',title:"Choy-idish to'plami, 12 dona",price:215000,old:0,tag:'',delivery:['dokon']},
+  {id:4,storeId:'main',cat:'gozallik',icon:'💆',title:"Yuz uchun parvarish to'plami",price:180000,old:240000,tag:'top',delivery:['dokon','uyga']},
+  {id:5,storeId:'main',cat:'bolalar',icon:'🧸',title:"Yumshoq o'yinchoq — Ayiqcha",price:95000,old:0,tag:'',delivery:['uyga']},
+  {id:6,storeId:'main',cat:'sport',icon:'🏋️',title:"Fitnes uchun gantel to'plami",price:330000,old:0,tag:'vip',delivery:['dokon']},
+  {id:7,storeId:'main',cat:'texno',icon:'📱',title:"Smartfon 128GB, VIP nusxa",price:3200000,old:3650000,tag:'vip',delivery:['dokon','uyga']},
+  {id:8,storeId:'main',cat:'kiyim',icon:'👟',title:"Sport krossovkalar unisex",price:275000,old:340000,tag:'top',delivery:['dokon','uyga'],desc:"Yengil to'qima material, kunlik kiyish uchun qulay.",sizes:[38,39,40,41,42,43,44,45]},
+  {id:9,storeId:'yaypan',cat:'gozallik',icon:'🧴',title:"Yaypan gul atri, 50ml",price:145000,old:0,tag:'top',delivery:['dokon'],desc:"Mahalliy ustalar tomonidan tayyorlangan tabiiy gul atri."},
+  {id:10,storeId:'yaypan',cat:'gozallik',icon:'🌸',title:"Atir yog'i to'plami — 3x1",price:98000,old:130000,tag:'',delivery:['dokon']},
 ];
 const FLASH = [
-  {id:101,cat:'texno',icon:'⌚',title:"Aqlli soat — Chaqmoq narx",price:340000,old:590000,delivery:['uyga']},
-  {id:102,cat:'kiyim',icon:'🎒',title:"Yuk sumkasi, VIP seriya",price:120000,old:210000,delivery:['dokon','uyga']},
-  {id:103,cat:'texno',icon:'🔌',title:"Tez zaryadlovchi to'plam",price:78000,old:135000,delivery:['uyga']},
-  {id:104,cat:'gozallik',icon:'🧴',title:"Parfyum to'plami — 3x1",price:165000,old:290000,delivery:['dokon','uyga']},
+  {id:101,storeId:'main',cat:'texno',icon:'⌚',title:"Aqlli soat — Chaqmoq narx",price:340000,old:590000,delivery:['uyga']},
+  {id:102,storeId:'main',cat:'kiyim',icon:'🎒',title:"Yuk sumkasi, VIP seriya",price:120000,old:210000,delivery:['dokon','uyga']},
+  {id:103,storeId:'main',cat:'texno',icon:'🔌',title:"Tez zaryadlovchi to'plam",price:78000,old:135000,delivery:['uyga']},
+  {id:104,storeId:'main',cat:'gozallik',icon:'🧴',title:"Parfyum to'plami — 3x1",price:165000,old:290000,delivery:['dokon','uyga']},
 ];
 
+/* ---------- I18N (UZ/RU) — asosiy interfeys uchun; mahsulot nomi/tavsifi va admin panel tarjima qilinmaydi ---------- */
+let currentLang = 'uz';
+const I18N = {
+  uz: {
+    search_ph:"Million xazina orasidan qidiring...", ball_label:"Ball: 1 240", orzular:"Orzular", kuzatish:"Kuzatish",
+    savatcha:"Savatcha", admin:"Admin",
+    cat_all:"Barchasi", cat_kiyim:"Kiyim olami", cat_texno:"Texno gumbaz", cat_uy:"Uy & oshxona",
+    cat_gozallik:"Go'zallik burchagi", cat_bolalar:"Bolalar dunyosi", cat_sport:"Sport maydoni",
+    hero_eyebrow:"● Ko'p do'konli VIP savdo maydoni", hero_h1:"Har bir xaridingiz <em>VIP</em> muomalaga loyiq.",
+    hero_p:"O'nlab mustaqil do'konlar, kuniga yangilanadigan chaqmoq narxlar va VIP Ball tizimi bilan — xarid qiling, kuzating, ishonch bilan oling.",
+    hero_cta1:"Xaridni boshlash →", hero_cta2:"Do'konlarni ko'rish",
+    stat_store:"do'kon", stat_region:"shahar/tuman", stat_1day:"1 kun", stat_delivery:"ichida yetkazish",
+    sec_bozor:"Bozorchalar", sec_dokonlar:"Do'konlar", sec_flash:"Chaqmoq Savdo", sec_products:"Barcha mahsulotlar",
+    cart_empty:"Savatcha bo'sh. Chaqmoq savdodan boshlang!", jami:"Jami:", checkout_btn:"Buyurtmani rasmiylashtirish",
+    addtocart_btn:"🛍️ Savatchaga qo'shish", choose_size_btn:"📏 O'lchamni tanlash"
+  },
+  ru: {
+    search_ph:"Ищите среди миллиона товаров...", ball_label:"Баллы: 1 240", orzular:"Желания", kuzatish:"Отследить",
+    savatcha:"Корзина", admin:"Админ",
+    cat_all:"Все", cat_kiyim:"Мир одежды", cat_texno:"Техно-купол", cat_uy:"Дом и кухня",
+    cat_gozallik:"Уголок красоты", cat_bolalar:"Мир детей", cat_sport:"Спортплощадка",
+    hero_eyebrow:"● VIP-площадка с множеством магазинов", hero_h1:"Каждая ваша покупка достойна <em>VIP</em>-отношения.",
+    hero_p:"Десятки независимых магазинов, ежедневные молниеносные цены и система VIP-баллов — покупайте, отслеживайте, доверяйте.",
+    hero_cta1:"Начать покупки →", hero_cta2:"Смотреть магазины",
+    stat_store:"магазин", stat_region:"город/район", stat_1day:"1 день", stat_delivery:"доставка",
+    sec_bozor:"Мини-рынки", sec_dokonlar:"Магазины", sec_flash:"Молниеносная распродажа", sec_products:"Все товары",
+    cart_empty:"Корзина пуста. Начните с молниеносной распродажи!", jami:"Итого:", checkout_btn:"Оформить заказ",
+    addtocart_btn:"🛍️ В корзину", choose_size_btn:"📏 Выбрать размер"
+  }
+};
+function t(key){ return (I18N[currentLang] && I18N[currentLang][key]) || I18N.uz[key] || key; }
+function toggleLang(){
+  currentLang = currentLang==='uz' ? 'ru' : 'uz';
+  applyLang();
+  renderFlash(); applyFilters(); renderCart();
+}
+function applyLang(){
+  document.getElementById('langLabel').textContent = currentLang==='uz' ? 'RU' : 'UZ';
+  document.documentElement.lang = currentLang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{ el.innerHTML = t(el.dataset.i18nHtml); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{ el.placeholder = t(el.dataset.i18nPh); });
+}
+
+/* ---------- REVIEWS & RATINGS ---------- */
+let REVIEWS = [];
+let currentPickedStar = 0;
+function reviewsFor(productId){ return REVIEWS.filter(r=>r.productId===productId); }
+function avgRating(productId){
+  const list = reviewsFor(productId);
+  if(!list.length) return null;
+  return list.reduce((s,r)=>s+r.rating,0)/list.length;
+}
+function starsHTML(avg, size){
+  size = size || 13;
+  if(avg==null) return '';
+  const full = Math.round(avg);
+  let html = `<span style="font-size:${size}px;color:var(--gold);letter-spacing:1px;">`;
+  for(let i=1;i<=5;i++) html += i<=full ? '★' : '☆';
+  return html + '</span>';
+}
+
+/* ---------- Cart abandonment reminder ---------- */
+let cartReminderTimer = null;
+function scheduleCartReminder(){
+  clearTimeout(cartReminderTimer);
+  if(cart.length===0) return;
+  cartReminderTimer = setTimeout(()=>{ document.getElementById('cartToast').classList.add('show'); }, 25000);
+}
+function hideCartToast(){ document.getElementById('cartToast').classList.remove('show'); }
+
 let wishlist = new Set();
-let cart = []; // {id, qty, size}
-let ORDERS = []; // {orderNum, name, phone, method, address, items, total, time, seen}
+let cart = [];
+let ORDERS = [];
+let currentRole = null;   // 'master' | 'store'
+let currentStoreId = null;
+let editingId = null;
+let pendingImgData = null;
+let selectedSize = null;
 
 function fmt(n){ return Math.round(n).toLocaleString('ru-RU').replace(/,/g,' ') + " so'm"; }
 function allProducts(){ return [...PRODUCTS, ...FLASH]; }
+function storeName(id){ const s = STORES.find(x=>x.id===id); return s ? s.name : "VIP MARKET"; }
 
 function tagLabel(tag){
   if(tag==='vip') return '<span class="tag tag-vip">VIP NARX</span>';
@@ -738,14 +788,14 @@ function deliveryBadges(p){
   return out;
 }
 
-function cardHTML(p, inFlash){
+function cardHTML(p){
   const badges = deliveryBadges(p) + tagLabel(p.tag);
-  const media = p.img
-    ? `<img src="${p.img}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;">`
-    : `<span>${p.icon||'🛍️'}</span>`;
+  const media = p.img ? `<img src="${p.img}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;">` : `<span>${p.icon||'🛍️'}</span>`;
   const hasSizes = p.sizes && p.sizes.length;
   const addAction = hasSizes ? `openProductModal(${p.id})` : `addToCart(${p.id})`;
-  const addLabel = hasSizes ? "📏 O'lchamni tanlash" : "🛍️ Savatchaga qo'shish";
+  const addLabel = hasSizes ? t('choose_size_btn') : t('addtocart_btn');
+  const avg = avgRating(p.id);
+  const ratingHTML = avg!=null ? `<div class="card-rating">${starsHTML(avg,12)}<span class="mono" style="font-size:10.5px;color:rgba(15,27,51,0.5);">${avg.toFixed(1)} (${reviewsFor(p.id).length})</span></div>` : '';
   return `
   <div class="card" data-cat="${p.cat||''}" data-pid="${p.id}">
     <div class="card-img" onclick="openProductModal(${p.id})" style="cursor:pointer;">
@@ -756,7 +806,8 @@ function cardHTML(p, inFlash){
     </div>
     <div class="card-body">
       <div class="card-title">${p.title}</div>
-      <div class="card-meta">VIP Market rasmiy sotuvchisi</div>
+      ${ratingHTML}
+      <div class="card-meta">🏬 ${storeName(p.storeId)}</div>
       <div class="price-row">
         <span class="price-now mono">${fmt(p.price)}</span>
         ${p.old ? `<span class="price-old">${fmt(p.old)}</span>` : ''}
@@ -765,125 +816,146 @@ function cardHTML(p, inFlash){
     </div>
   </div>`;
 }
+function renderFlash(){ document.getElementById('flashGrid').innerHTML = FLASH.map(p=>cardHTML(p)).join(''); }
 
-let filterState = { cat:'all', q:'', sort:'default', delivery:'all', onlyDiscount:false, minPrice:null, maxPrice:null };
+/* ---------- FILTERS ---------- */
+let filterState = { cat:'all', q:'', sort:'default', delivery:'all', onlyDiscount:false, minPrice:null, maxPrice:null, storeId:'all' };
 
 function applyFilters(){
   let list = PRODUCTS.slice();
   if(filterState.cat !== 'all') list = list.filter(p=>p.cat===filterState.cat);
   if(filterState.q) list = list.filter(p=>p.title.toLowerCase().includes(filterState.q));
   if(filterState.delivery !== 'all') list = list.filter(p=>p.delivery.includes(filterState.delivery));
+  if(filterState.storeId !== 'all') list = list.filter(p=>p.storeId===filterState.storeId);
   if(filterState.onlyDiscount) list = list.filter(p=>p.old && p.old > p.price);
   if(filterState.minPrice != null) list = list.filter(p=>p.price >= filterState.minPrice);
   if(filterState.maxPrice != null) list = list.filter(p=>p.price <= filterState.maxPrice);
-
   if(filterState.sort==='price_asc') list.sort((a,b)=>a.price-b.price);
   else if(filterState.sort==='price_desc') list.sort((a,b)=>b.price-a.price);
   else if(filterState.sort==='discount') list.sort((a,b)=>{
-    const da = a.old ? (a.old-a.price)/a.old : 0;
-    const db = b.old ? (b.old-b.price)/b.old : 0;
+    const da = a.old ? (a.old-a.price)/a.old : 0, db = b.old ? (b.old-b.price)/b.old : 0;
     return db-da;
   });
-
   const grid = document.getElementById('mainGrid');
-  grid.innerHTML = list.length ? list.map(p=>cardHTML(p,false)).join('') : '<p style="grid-column:1/-1;color:rgba(15,27,51,0.5)">Hech narsa topilmadi. Filtrlarni o\'zgartirib ko\'ring.</p>';
-  const rc = document.getElementById('resultCount');
-  if(rc) rc.textContent = `${list.length} ta mahsulot`;
+  grid.innerHTML = list.length ? list.map(p=>cardHTML(p)).join('') : '<p style="grid-column:1/-1;color:rgba(15,27,51,0.5)">Hech narsa topilmadi. Filtrlarni o\'zgartirib ko\'ring.</p>';
+  document.getElementById('resultCount').textContent = `${list.length} ta mahsulot`;
 }
-
 function onFilterChange(){
   filterState.sort = document.getElementById('fSort').value;
   filterState.delivery = document.getElementById('fDelivery').value;
+  filterState.storeId = document.getElementById('fStore').value;
   filterState.onlyDiscount = document.getElementById('fDiscount').checked;
-  const min = document.getElementById('fMin').value;
-  const max = document.getElementById('fMax').value;
+  const min = document.getElementById('fMin').value, max = document.getElementById('fMax').value;
   filterState.minPrice = min ? parseFloat(min) : null;
   filterState.maxPrice = max ? parseFloat(max) : null;
   applyFilters();
 }
-
 function onSearchInput(){
   const q = document.getElementById('searchInput').value.trim().toLowerCase();
   const box = document.getElementById('searchSuggest');
   if(!q){ box.classList.remove('show'); box.innerHTML=''; return; }
   const matches = PRODUCTS.filter(p=>p.title.toLowerCase().includes(q)).slice(0,6);
-  if(matches.length===0){
-    box.innerHTML = '<div class="suggest-empty">Hech narsa topilmadi</div>';
-  } else {
-    box.innerHTML = matches.map(p=>{
-      const thumb = p.img ? `<img src="${p.img}">` : (p.icon||'🛍️');
-      return `<div class="suggest-item" onclick="goToProduct(${p.id})">
-        <div class="thumb">${thumb}</div>
-        <div class="t">${p.title}</div>
-        <div class="p">${fmt(p.price)}</div>
-      </div>`;
-    }).join('');
-  }
+  box.innerHTML = matches.length ? matches.map(p=>{
+    const thumb = p.img ? `<img src="${p.img}">` : (p.icon||'🛍️');
+    return `<div class="suggest-item" onclick="goToProduct(${p.id})"><div class="thumb">${thumb}</div><div class="t">${p.title}</div><div class="p">${fmt(p.price)}</div></div>`;
+  }).join('') : '<div class="suggest-empty">Hech narsa topilmadi</div>';
   box.classList.add('show');
 }
-
 function goToProduct(id){
   document.getElementById('searchSuggest').classList.remove('show');
   document.getElementById('searchInput').value = '';
-  filterState.q = '';
-  filterState.cat = 'all';
+  filterState.q=''; filterState.cat='all';
   document.querySelectorAll('#catNav button').forEach(b=>b.classList.remove('on'));
   document.querySelector('#catNav button[data-cat="all"]').classList.add('on');
   applyFilters();
   document.getElementById('mahsulotlar').scrollIntoView({behavior:'smooth'});
   setTimeout(()=>{
     const card = document.querySelector(`#mainGrid [data-pid="${id}"]`);
-    if(card){
-      card.scrollIntoView({behavior:'smooth', block:'center'});
-      card.style.outline = '3px solid var(--gold)';
-      card.style.outlineOffset = '2px';
-      setTimeout(()=>{ card.style.outline=''; }, 1600);
-    }
-  }, 350);
+    if(card){ card.scrollIntoView({behavior:'smooth',block:'center'}); card.style.outline='3px solid var(--gold)'; setTimeout(()=>card.style.outline='',1600); }
+  },350);
 }
+document.addEventListener('click', e=>{ if(!e.target.closest('.search-shell')) document.getElementById('searchSuggest').classList.remove('show'); });
 
-document.addEventListener('click', e=>{
-  if(!e.target.closest('.search-shell')) document.getElementById('searchSuggest').classList.remove('show');
+document.getElementById('catNav').addEventListener('click', e=>{
+  const btn = e.target.closest('button'); if(!btn) return;
+  document.querySelectorAll('#catNav button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on'); filterState.cat = btn.dataset.cat; applyFilters();
+  document.getElementById('mahsulotlar').scrollIntoView({behavior:'smooth'});
 });
-
-function renderFlash(){
-  document.getElementById('flashGrid').innerHTML = FLASH.map(p=>cardHTML(p,true)).join('');
+function runSearch(){
+  filterState.q = document.getElementById('searchInput').value.trim().toLowerCase();
+  document.getElementById('searchSuggest').classList.remove('show');
+  applyFilters();
+  document.getElementById('mahsulotlar').scrollIntoView({behavior:'smooth'});
 }
+document.getElementById('searchInput').addEventListener('keydown', e=>{ if(e.key==='Enter') runSearch(); });
 
+/* ---------- WISHLIST / ZOOM MODAL ---------- */
 function toggleWish(id, el, evt){
   if(evt) evt.stopPropagation();
   if(wishlist.has(id)){ wishlist.delete(id); el.classList.remove('on'); }
   else { wishlist.add(id); el.classList.add('on'); }
   document.getElementById('wishCount').textContent = wishlist.size;
 }
-
-/* Product detail modal: image zoom + size selection */
-let selectedSize = null;
 function openProductModal(id){
-  const p = allProducts().find(x=>x.id===id);
-  if(!p) return;
+  const p = allProducts().find(x=>x.id===id); if(!p) return;
   selectedSize = null;
+  currentPickedStar = 0;
+  p.views = (p.views||0) + 1;
   const media = p.img ? `<img src="${p.img}" alt="${p.title}">` : `<span>${p.icon||'🛍️'}</span>`;
   const sizesHTML = (p.sizes && p.sizes.length) ? `
-    <div class="form-field" style="margin-top:14px;">
-      <label>O'lcham tanlang</label>
-      <div class="size-row" id="sizeRow">
-        ${p.sizes.map(s=>`<button class="size-btn" data-size="${s}" onclick="selectSize('${s}', this)">${s}</button>`).join('')}
-      </div>
+    <div class="form-field" style="margin-top:14px;"><label>O'lcham tanlang</label>
+      <div class="size-row" id="sizeRow">${p.sizes.map(s=>`<button class="size-btn" onclick="selectSize('${s}', this)">${s}</button>`).join('')}</div>
     </div>` : '';
+  const revs = reviewsFor(id);
+  const avg = avgRating(id);
+  const reviewsHTML = `
+    <div class="reviews-block">
+      <div style="display:flex;align-items:center;gap:8px;">
+        ${avg!=null ? starsHTML(avg,16) : '<span style="font-size:12px;color:rgba(15,27,51,0.45);">Hali baholanmagan</span>'}
+        ${avg!=null?`<span class="mono" style="font-size:12px;color:rgba(15,27,51,0.5);">${avg.toFixed(1)} / 5 · ${revs.length} sharh</span>`:''}
+      </div>
+      <div class="review-list" id="reviewList">
+        ${revs.length ? revs.map(r=>`
+          <div class="review-item">
+            <div style="display:flex;justify-content:space-between;"><b style="font-size:12.5px;">${r.name}</b><span style="font-size:11px;color:rgba(15,27,51,0.4);">${r.time}</span></div>
+            <div>${starsHTML(r.rating,12)}</div>
+            <p style="font-size:12.5px;color:rgba(15,27,51,0.65);margin-top:2px;">${r.comment}</p>
+          </div>`).join('') : `<p style="font-size:12px;color:rgba(15,27,51,0.45);margin-top:10px;">Hali sharh yo'q — birinchi bo'ling!</p>`}
+      </div>
+      <div class="add-review">
+        <label style="font-size:12px;font-weight:700;color:rgba(15,27,51,0.6);">Sharh qoldirish</label>
+        <div class="star-picker" id="starPicker">${[1,2,3,4,5].map(n=>`<span class="star-pick" data-val="${n}" onclick="pickStar(${n})">☆</span>`).join('')}</div>
+        <input type="text" id="revName" placeholder="Ismingiz" style="margin-top:8px;">
+        <textarea id="revComment" placeholder="Fikringiz..." style="margin-top:8px;min-height:50px;"></textarea>
+        <button class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:8px;border:1px solid var(--line-dark);" onclick="submitReview(${p.id})">Sharhni yuborish</button>
+      </div>
+    </div>`;
   document.getElementById('productModalBody').innerHTML = `
     <div class="product-modal-img-wrap" id="pmImgWrap" onclick="toggleZoom(event)">${media}</div>
     <div class="zoom-hint">🔍 Kattalashtirish uchun rasmni bosing</div>
     <h3 style="margin-top:14px;font-size:19px;">${p.title}</h3>
-    <div class="price-row" style="margin:8px 0;">
-      <span class="price-now mono" style="font-size:18px;">${fmt(p.price)}</span>
-      ${p.old ? `<span class="price-old">${fmt(p.old)}</span>` : ''}
-    </div>
-    <p style="font-size:13px;color:rgba(15,27,51,0.65);">${p.desc || "Bu mahsulot haqida qo'shimcha tavsif admin tomonidan hali kiritilmagan."}</p>
+    <div style="font-size:12px;color:rgba(15,27,51,0.5);margin-top:4px;">🏬 ${storeName(p.storeId)}</div>
+    <div class="price-row" style="margin:8px 0;"><span class="price-now mono" style="font-size:18px;">${fmt(p.price)}</span>${p.old?`<span class="price-old">${fmt(p.old)}</span>`:''}</div>
+    <p style="font-size:13px;color:rgba(15,27,51,0.65);">${p.desc || "Bu mahsulot haqida qo'shimcha tavsif hali kiritilmagan."}</p>
     ${sizesHTML}
     <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:16px;" onclick="confirmAddFromModal(${p.id})">🛍️ Savatchaga qo'shish</button>
+    ${reviewsHTML}
   `;
   document.getElementById('productModalOverlay').classList.add('show');
+}
+function pickStar(n){
+  currentPickedStar = n;
+  document.querySelectorAll('#starPicker .star-pick').forEach(el=>{ el.textContent = parseInt(el.dataset.val)<=n ? '★' : '☆'; });
+}
+function submitReview(productId){
+  const name = document.getElementById('revName').value.trim();
+  const comment = document.getElementById('revComment').value.trim();
+  if(!currentPickedStar){ alert("Iltimos, yulduzcha bilan baho bering."); return; }
+  if(!name){ alert("Iltimos, ismingizni kiriting."); return; }
+  REVIEWS.push({id:Date.now(), productId, name, rating:currentPickedStar, comment: comment||'', time:new Date().toLocaleDateString('uz-UZ')});
+  applyFilters();
+  openProductModal(productId);
 }
 function closeProductModal(){ document.getElementById('productModalOverlay').classList.remove('show'); }
 function toggleZoom(e){ e.currentTarget.classList.toggle('zoomed'); }
@@ -891,10 +963,8 @@ document.addEventListener('mousemove', e=>{
   const wrap = document.getElementById('pmImgWrap');
   if(wrap && wrap.classList.contains('zoomed')){
     const rect = wrap.getBoundingClientRect();
-    const x = ((e.clientX-rect.left)/rect.width)*100;
-    const y = ((e.clientY-rect.top)/rect.height)*100;
-    const img = wrap.querySelector('img');
-    if(img) img.style.transformOrigin = `${x}% ${y}%`;
+    const x = ((e.clientX-rect.left)/rect.width)*100, y = ((e.clientY-rect.top)/rect.height)*100;
+    const img = wrap.querySelector('img'); if(img) img.style.transformOrigin = `${x}% ${y}%`;
   }
 });
 function selectSize(size, btn){
@@ -904,25 +974,20 @@ function selectSize(size, btn){
 }
 function confirmAddFromModal(id){
   const p = allProducts().find(x=>x.id===id);
-  if(p.sizes && p.sizes.length && !selectedSize){
-    alert("Iltimos, avval o'lchamni tanlang.");
-    return;
-  }
+  if(p.sizes && p.sizes.length && !selectedSize){ alert("Iltimos, avval o'lchamni tanlang."); return; }
   addToCart(id, selectedSize);
   closeProductModal();
 }
 
+/* ---------- CART ---------- */
 function addToCart(id, size){
   size = size || null;
   const line = cart.find(c=>c.id===id && c.size===size);
-  if(line) line.qty++;
-  else cart.push({id, qty:1, size});
-  renderCart();
-  toggleCart(true);
+  if(line) line.qty++; else cart.push({id, qty:1, size});
+  renderCart(); toggleCart(true);
 }
 function changeQty(id, size, delta){
-  const line = cart.find(c=>c.id===id && c.size===size);
-  if(!line) return;
+  const line = cart.find(c=>c.id===id && c.size===size); if(!line) return;
   line.qty += delta;
   if(line.qty<=0) cart = cart.filter(c=>!(c.id===id && c.size===size));
   renderCart();
@@ -932,24 +997,22 @@ function renderCart(){
   const all = allProducts();
   document.getElementById('cartCount').textContent = cart.reduce((s,c)=>s+c.qty,0);
   if(cart.length===0){
-    body.innerHTML = '<div class="drawer-empty">Savatcha bo\'sh. Chaqmoq savdodan boshlang!</div>';
+    body.innerHTML = `<div class="drawer-empty">${t('cart_empty')}</div>`;
     document.getElementById('drawerTotal').textContent = fmt(0);
+    clearTimeout(cartReminderTimer);
+    hideCartToast();
     return;
   }
   let total = 0;
   body.innerHTML = cart.map(c=>{
-    const p = all.find(x=>x.id===c.id);
-    if(!p) return '';
+    const p = all.find(x=>x.id===c.id); if(!p) return '';
     total += p.price * c.qty;
     const thumb = p.img ? `<img src="${p.img}">` : p.icon;
     const sizeLabel = c.size ? ` · O'lcham: ${c.size}` : '';
     const sizeArg = c.size ? `'${c.size}'` : 'null';
     return `<div class="cart-line">
       <div class="thumb">${thumb}</div>
-      <div class="info">
-        <div class="t">${p.title}</div>
-        <div class="p">${fmt(p.price)} × ${c.qty}${sizeLabel}</div>
-      </div>
+      <div class="info"><div class="t">${p.title}</div><div class="p">${fmt(p.price)} × ${c.qty}${sizeLabel}</div></div>
       <div style="display:flex;gap:6px;align-items:center;">
         <button onclick="changeQty(${p.id},${sizeArg},-1)" style="font-weight:700;">−</button>
         <span class="mono" style="font-size:12px;">${c.qty}</span>
@@ -958,276 +1021,391 @@ function renderCart(){
     </div>`;
   }).join('');
   document.getElementById('drawerTotal').textContent = fmt(total);
+  scheduleCartReminder();
 }
 function toggleCart(show){
   document.getElementById('cartDrawer').classList.toggle('show', show);
   document.getElementById('overlay').classList.toggle('show', show);
+  if(show) hideCartToast();
 }
 
-/* Category filter */
-document.getElementById('catNav').addEventListener('click', e=>{
-  const btn = e.target.closest('button');
-  if(!btn) return;
-  document.querySelectorAll('#catNav button').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');
-  filterState.cat = btn.dataset.cat;
-  applyFilters();
-  document.getElementById('mahsulotlar').scrollIntoView({behavior:'smooth'});
-});
-
-function runSearch(){
-  const q = document.getElementById('searchInput').value.trim().toLowerCase();
-  filterState.q = q;
-  document.getElementById('searchSuggest').classList.remove('show');
-  applyFilters();
-  document.getElementById('mahsulotlar').scrollIntoView({behavior:'smooth'});
-}
-document.getElementById('searchInput').addEventListener('keydown', e=>{ if(e.key==='Enter') runSearch(); });
-
-/* Installment calculator */
+/* ---------- CALC / COUNTDOWN / TICKER ---------- */
 function calcInstallment(){
   const price = parseFloat(document.getElementById('calcPrice').value) || 0;
   const months = parseInt(document.getElementById('calcMonths').value);
-  const monthly = Math.round(price/months);
-  document.getElementById('calcResult').textContent = fmt(monthly);
+  document.getElementById('calcResult').textContent = fmt(Math.round(price/months));
 }
-
-/* Countdown */
 function updateCountdown(){
-  const now = new Date();
-  const end = new Date();
-  end.setHours(23,59,59,999);
+  const now = new Date(), end = new Date(); end.setHours(23,59,59,999);
   let diff = Math.max(0, end - now);
-  const h = Math.floor(diff/3600000);
-  const m = Math.floor((diff%3600000)/60000);
-  const s = Math.floor((diff%60000)/1000);
-  document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
-  document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
-  document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+  document.getElementById('cd-h').textContent = String(Math.floor(diff/3600000)).padStart(2,'0');
+  document.getElementById('cd-m').textContent = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+  document.getElementById('cd-s').textContent = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
 }
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
-/* Ticker */
-const tickerData = [
-  "⚡ Aqlli soat — 42% pasaydi","⚡ Smartfon 128GB — VIP narx","⚡ Krossovkalar — 20% chegirma",
-  "⚡ Parfyum to'plami — 43% pasaydi","⚡ Naushnik Pro — 21% pasaydi","⚡ Yuk sumkasi — 43% pasaydi"
-];
+setInterval(updateCountdown,1000); updateCountdown();
+const tickerData = ["⚡ Aqlli soat — 42% pasaydi","⚡ Smartfon 128GB — VIP narx","⚡ Krossovkalar — 20% chegirma","⚡ Parfyum to'plami — 43% pasaydi","⚡ Naushnik Pro — 21% pasaydi","⚡ Yuk sumkasi — 43% pasaydi"];
 document.getElementById('tickerTrack').innerHTML = [...tickerData,...tickerData].map(t=>`<span class="ticker-item"><span class="arrow-down">▼</span>${t}</span>`).join('');
 
-/* ---------------- ADMIN ---------------- */
+/* ---------- STORES (public) ---------- */
+function populateStoreFilterSelects(){
+  const regions = [...new Set(STORES.map(s=>s.region))];
+  const cats = [...new Set(STORES.map(s=>s.category))];
+  document.getElementById('sRegion').innerHTML = '<option value="all">Hudud: barchasi</option>' + regions.map(r=>`<option value="${r}">${r}</option>`).join('');
+  document.getElementById('sCategory').innerHTML = '<option value="all">Yo\'nalish: barchasi</option>' + cats.map(c=>`<option value="${c}">${c}</option>`).join('');
+  document.getElementById('fStore').innerHTML = '<option value="all">Do\'kon: barchasi</option>' + STORES.map(s=>`<option value="${s.id}">${s.name}</option>`).join('');
+  document.getElementById('storeCountStat').textContent = STORES.length;
+}
+function renderStores(){
+  const region = document.getElementById('sRegion').value, cat = document.getElementById('sCategory').value;
+  let list = STORES.slice();
+  if(region!=='all') list = list.filter(s=>s.region===region);
+  if(cat!=='all') list = list.filter(s=>s.category===cat);
+  document.getElementById('storeResultCount').textContent = `${list.length} ta do'kon`;
+  document.getElementById('storeGrid').innerHTML = list.map(s=>{
+    const svc = [];
+    if(s.services.includes('dokon')) svc.push('<span class="tag tag-dokon">DO\'KONDAN OLISH</span>');
+    if(s.services.includes('uyga')) svc.push('<span class="tag tag-fast">UYGA YETKAZISH</span>');
+    return `<div class="store-card">
+      <h4>${s.name}</h4>
+      <div class="cat">${s.category} · ${s.region}${s.direction?(' · '+s.direction):''}</div>
+      <div class="addr">📍 ${s.address}</div>
+      <div class="svc">${svc.join('')}</div>
+      <button class="btn btn-gold" style="width:100%;justify-content:center;font-size:12.5px;padding:9px;" onclick="viewStoreProducts('${s.id}')">Mahsulotlarini ko'rish</button>
+    </div>`;
+  }).join('');
+}
+function viewStoreProducts(storeId){
+  filterState.storeId = storeId;
+  document.getElementById('fStore').value = storeId;
+  applyFilters();
+  document.getElementById('mahsulotlar').scrollIntoView({behavior:'smooth'});
+}
+
+/* ---------- STORE JOIN REQUEST ---------- */
+function openStoreRequestModal(){ document.getElementById('storeReqModalOverlay').classList.add('show'); }
+function closeStoreRequestModal(){ document.getElementById('storeReqModalOverlay').classList.remove('show'); }
+function submitStoreRequest(){
+  const name=document.getElementById('srName').value.trim(), category=document.getElementById('srCategory').value.trim();
+  const region=document.getElementById('srRegion').value.trim(), direction=document.getElementById('srDirection').value.trim();
+  const address=document.getElementById('srAddress').value.trim(), phone=document.getElementById('srPhone').value.trim();
+  const dokon=document.getElementById('srDokon').checked, uyga=document.getElementById('srUyga').checked;
+  if(!name||!category||!region||!address||!phone){ alert("Iltimos, barcha maydonlarni to'ldiring."); return; }
+  if(!dokon && !uyga){ alert("Kamida bitta xizmat turini tanlang."); return; }
+  const services=[]; if(dokon)services.push('dokon'); if(uyga)services.push('uyga');
+  STORE_REQUESTS.push({id:Date.now(),name,category,region,direction,address,phone,services,time:new Date().toLocaleString('uz-UZ')});
+  updateReqBadge();
+  closeStoreRequestModal();
+  alert("Arizangiz qabul qilindi! Admin tasdiqlagach, sizga kirish uchun parol beriladi.");
+  ['srName','srCategory','srRegion','srDirection','srAddress','srPhone'].forEach(id=>document.getElementById(id).value='');
+}
+
+/* ---------- ADMIN LOGIN ---------- */
 function openAdminGate(){
-  if(isAdmin){ openAdminPanel(); return; }
   document.getElementById('passModalOverlay').classList.add('show');
-  document.getElementById('passInput').value='';
-  document.getElementById('passError').style.display='none';
-  setTimeout(()=>document.getElementById('passInput').focus(), 50);
+  document.getElementById('passInput').value=''; document.getElementById('passError').style.display='none';
+  setTimeout(()=>document.getElementById('passInput').focus(),50);
 }
 function closeAdminGate(){ document.getElementById('passModalOverlay').classList.remove('show'); }
 function checkAdminPassword(){
   const val = document.getElementById('passInput').value.trim();
-  if(val === ADMIN_PASSWORD){
-    isAdmin = true;
-    closeAdminGate();
-    openAdminPanel();
-  } else {
-    document.getElementById('passError').style.display='block';
-  }
+  if(val === MASTER_PASSWORD){ currentRole='master'; currentStoreId=null; closeAdminGate(); openAdminPanel(); return; }
+  const store = STORES.find(s=>s.password===val);
+  if(store){ currentRole='store'; currentStoreId=store.id; closeAdminGate(); openAdminPanel(); return; }
+  document.getElementById('passError').style.display='block';
 }
 document.getElementById('passInput').addEventListener('keydown', e=>{ if(e.key==='Enter') checkAdminPassword(); });
 
 function openAdminPanel(){
+  populateProductStoreSelect();
   resetProductForm();
   renderAdminList();
-  document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('on'));
-  document.getElementById('tabProductsBtn').classList.add('on');
-  document.getElementById('adminProductsTab').style.display = 'block';
-  document.getElementById('adminOrdersTab').style.display = 'none';
+  document.getElementById('tabStoresBtn').style.display = currentRole==='master' ? 'inline-flex' : 'none';
+  document.getElementById('tabRequestsBtn').style.display = currentRole==='master' ? 'inline-flex' : 'none';
+  document.getElementById('adminPanelTitle').textContent = currentRole==='master' ? "🔐 Bosh admin panel" : `🔐 ${storeName(currentStoreId)} — admin panel`;
+  switchAdminTab('products');
   document.getElementById('adminModalOverlay').classList.add('show');
 }
 function closeAdminPanel(){ document.getElementById('adminModalOverlay').classList.remove('show'); }
-function adminLogout(){ isAdmin = false; closeAdminPanel(); }
+function adminLogout(){ currentRole=null; currentStoreId=null; closeAdminPanel(); }
 
 function switchAdminTab(tab){
   document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('on'));
-  document.getElementById(tab==='products' ? 'tabProductsBtn' : 'tabOrdersBtn').classList.add('on');
-  document.getElementById('adminProductsTab').style.display = tab==='products' ? 'block' : 'none';
-  document.getElementById('adminOrdersTab').style.display = tab==='orders' ? 'block' : 'none';
-  if(tab==='orders'){
-    ORDERS.forEach(o=>o.seen=true);
-    updateOrderBadge();
-    renderOrdersList();
-  }
+  const map = {products:'tabProductsBtn',orders:'tabOrdersBtn',stats:'tabStatsBtn',stores:'tabStoresBtn',requests:'tabRequestsBtn'};
+  document.getElementById(map[tab]).classList.add('on');
+  ['adminProductsTab','adminOrdersTab','adminStatsTab','adminStoresTab','adminRequestsTab'].forEach(id=>{
+    document.getElementById(id).style.display = 'none';
+  });
+  document.getElementById('admin'+tab.charAt(0).toUpperCase()+tab.slice(1)+'Tab').style.display = 'block';
+  if(tab==='orders'){ visibleOrdersForAdmin().forEach(o=>o.seen=true); updateOrderBadge(); renderOrdersList(); }
+  if(tab==='stats') renderStats();
+  if(tab==='stores') renderAdminStoresList();
+  if(tab==='requests'){ renderAdminRequestsList(); }
 }
 
-function renderOrdersList(){
-  document.getElementById('ordersCount').textContent = ORDERS.length;
-  const wrap = document.getElementById('ordersList');
-  if(ORDERS.length===0){
-    wrap.innerHTML = '<div class="order-empty">Hozircha buyurtmalar tushmagan.</div>';
-    return;
-  }
-  wrap.innerHTML = ORDERS.map(o=>{
-    const methodLabel = o.method==='uyga' ? '🚚 Uyga yetkazib berish' : "🏬 Do'kondan olib ketish";
-    const itemsHTML = o.items.map(it=>`<div style="font-size:12.5px;color:rgba(15,27,51,0.65);display:flex;justify-content:space-between;"><span>${it.title}${it.size?` · o'lcham: ${it.size}`:''} × ${it.qty}</span><span class="mono">${fmt(it.price*it.qty)}</span></div>`).join('');
-    return `<div class="order-card">
-      <div class="order-card-head">
-        <span class="mono" style="font-weight:700;color:var(--crimson);">${o.orderNum}</span>
-        <span style="font-size:11px;color:rgba(15,27,51,0.45);">${o.time}</span>
-      </div>
-      <div style="font-size:13.5px;font-weight:700;margin-top:8px;">👤 ${o.name} · ${o.phone}</div>
-      <div style="font-size:12.5px;color:rgba(15,27,51,0.6);margin-top:3px;">${methodLabel}${o.address?` — ${o.address}`:''}</div>
-      <div class="order-items">${itemsHTML}</div>
-      <div class="mono" style="font-weight:700;margin-top:10px;font-size:15px;text-align:right;">Jami: ${fmt(o.total)}</div>
-    </div>`;
-  }).join('');
+/* ---------- PRODUCT ADMIN ---------- */
+function populateProductStoreSelect(){
+  const sel = document.getElementById('apStore');
+  sel.innerHTML = STORES.map(s=>`<option value="${s.id}">${s.name}</option>`).join('');
+  document.getElementById('apStoreField').style.display = currentRole==='master' ? 'block' : 'none';
+  if(currentRole==='store') sel.value = currentStoreId;
 }
-
-function updateOrderBadge(){
-  const unseen = ORDERS.filter(o=>!o.seen).length;
-  const badge = document.getElementById('orderBadge');
-  const inline = document.getElementById('orderBadgeInline');
-  if(unseen>0){
-    badge.style.display='flex'; badge.textContent = unseen;
-    inline.style.display='inline-flex'; inline.textContent = unseen;
-  } else {
-    badge.style.display='none';
-    inline.style.display='none';
-  }
-}
-
+function visibleProductsForAdmin(){ return currentRole==='master' ? PRODUCTS : PRODUCTS.filter(p=>p.storeId===currentStoreId); }
 function renderAdminList(){
-  document.getElementById('apCount').textContent = PRODUCTS.length;
-  document.getElementById('adminList').innerHTML = PRODUCTS.map(p=>`
+  const list = visibleProductsForAdmin();
+  document.getElementById('apCount').textContent = list.length;
+  document.getElementById('adminList').innerHTML = list.map(p=>`
     <div class="admin-row">
       <div class="admin-row-thumb">${p.img?`<img src="${p.img}">`:(p.icon||'🛍️')}</div>
-      <div class="admin-row-info">
-        <div class="t">${p.title}</div>
-        <div class="p mono">${fmt(p.price)}</div>
-      </div>
-      <div class="admin-row-actions">
-        <button onclick="editProduct(${p.id})" title="Tahrirlash">✎</button>
-        <button onclick="deleteProduct(${p.id})" title="O'chirish">🗑</button>
-      </div>
+      <div class="admin-row-info"><div class="t">${p.title}</div><div class="p mono">${fmt(p.price)} · ${storeName(p.storeId)}</div></div>
+      <div class="admin-row-actions"><button onclick="editProduct(${p.id})" title="Tahrirlash">✎</button><button onclick="deleteProduct(${p.id})" title="O'chirish">🗑</button></div>
     </div>`).join('');
 }
-
 function previewFromUrl(){
   const url = document.getElementById('apImgUrl').value.trim();
-  if(url){
-    pendingImgData = null;
-    const prev = document.getElementById('apImgPreview');
-    prev.src = url; prev.style.display='block';
-  }
+  if(url){ pendingImgData=null; const prev=document.getElementById('apImgPreview'); prev.src=url; prev.style.display='block'; }
 }
 document.getElementById('apImgFile').addEventListener('change', e=>{
-  const file = e.target.files[0];
-  if(!file) return;
+  const file = e.target.files[0]; if(!file) return;
   const reader = new FileReader();
   reader.onload = ev => {
     pendingImgData = ev.target.result;
     document.getElementById('apImgUrl').value = '';
-    const prev = document.getElementById('apImgPreview');
-    prev.src = pendingImgData; prev.style.display='block';
+    const prev = document.getElementById('apImgPreview'); prev.src=pendingImgData; prev.style.display='block';
   };
   reader.readAsDataURL(file);
 });
-
 function resetProductForm(){
-  editingId = null;
-  pendingImgData = null;
-  document.getElementById('apTitle').value = '';
-  document.getElementById('apPrice').value = '';
-  document.getElementById('apOld').value = '';
-  document.getElementById('apDesc').value = '';
-  document.getElementById('apSizes').value = '';
-  document.getElementById('apCat').value = 'kiyim';
-  document.getElementById('apImgUrl').value = '';
-  document.getElementById('apImgFile').value = '';
-  document.getElementById('apImgPreview').style.display = 'none';
-  document.getElementById('apDokon').checked = true;
-  document.getElementById('apUyga').checked = true;
-  document.getElementById('apTag').value = '';
-  document.getElementById('apSaveBtn').textContent = "Mahsulot qo'shish";
+  editingId=null; pendingImgData=null;
+  document.getElementById('apTitle').value=''; document.getElementById('apPrice').value=''; document.getElementById('apOld').value='';
+  document.getElementById('apDesc').value=''; document.getElementById('apSizes').value=''; document.getElementById('apCat').value='kiyim';
+  document.getElementById('apImgUrl').value=''; document.getElementById('apImgFile').value=''; document.getElementById('apImgPreview').style.display='none';
+  document.getElementById('apDokon').checked=true; document.getElementById('apUyga').checked=true; document.getElementById('apTag').value='';
+  document.getElementById('apSaveBtn').textContent="Mahsulot qo'shish";
+  if(currentRole==='store') document.getElementById('apStore').value = currentStoreId;
 }
-
 function editProduct(id){
-  const p = PRODUCTS.find(x=>x.id===id);
-  if(!p) return;
-  editingId = id;
-  pendingImgData = null;
-  document.getElementById('apTitle').value = p.title;
-  document.getElementById('apPrice').value = p.price;
-  document.getElementById('apOld').value = p.old || '';
-  document.getElementById('apDesc').value = p.desc || '';
-  document.getElementById('apSizes').value = (p.sizes && p.sizes.length) ? p.sizes.join(',') : '';
-  document.getElementById('apCat').value = p.cat;
-  document.getElementById('apImgUrl').value = p.img || '';
-  document.getElementById('apImgFile').value = '';
-  const prev = document.getElementById('apImgPreview');
-  if(p.img){ prev.src = p.img; prev.style.display='block'; } else { prev.style.display='none'; }
-  document.getElementById('apDokon').checked = p.delivery.includes('dokon');
-  document.getElementById('apUyga').checked = p.delivery.includes('uyga');
-  document.getElementById('apTag').value = p.tag || '';
-  document.getElementById('apSaveBtn').textContent = "O'zgarishlarni saqlash";
+  const p = PRODUCTS.find(x=>x.id===id); if(!p) return;
+  if(currentRole==='store' && p.storeId!==currentStoreId) return;
+  editingId=id; pendingImgData=null;
+  document.getElementById('apStore').value = p.storeId;
+  document.getElementById('apTitle').value=p.title; document.getElementById('apPrice').value=p.price; document.getElementById('apOld').value=p.old||'';
+  document.getElementById('apDesc').value=p.desc||''; document.getElementById('apSizes').value=(p.sizes&&p.sizes.length)?p.sizes.join(','):'';
+  document.getElementById('apCat').value=p.cat; document.getElementById('apImgUrl').value=p.img||''; document.getElementById('apImgFile').value='';
+  const prev=document.getElementById('apImgPreview'); if(p.img){ prev.src=p.img; prev.style.display='block'; } else prev.style.display='none';
+  document.getElementById('apDokon').checked=p.delivery.includes('dokon'); document.getElementById('apUyga').checked=p.delivery.includes('uyga');
+  document.getElementById('apTag').value=p.tag||''; document.getElementById('apSaveBtn').textContent="O'zgarishlarni saqlash";
 }
-
 function deleteProduct(id){
+  const p = PRODUCTS.find(x=>x.id===id); if(!p) return;
+  if(currentRole==='store' && p.storeId!==currentStoreId) return;
   if(!confirm("Bu mahsulotni o'chirishga ishonchingiz komilmi?")) return;
-  const idx = PRODUCTS.findIndex(p=>p.id===id);
-  if(idx>-1) PRODUCTS.splice(idx,1);
+  const idx = PRODUCTS.findIndex(x=>x.id===id); if(idx>-1) PRODUCTS.splice(idx,1);
   cart = cart.filter(c=>c.id!==id);
-  renderAdminList();
-  applyFilters();
-  renderCart();
+  renderAdminList(); applyFilters(); renderCart();
 }
-
 function saveProduct(){
-  const title = document.getElementById('apTitle').value.trim();
-  const price = parseFloat(document.getElementById('apPrice').value);
-  const old = parseFloat(document.getElementById('apOld').value) || 0;
-  const desc = document.getElementById('apDesc').value.trim();
-  const sizesRaw = document.getElementById('apSizes').value.trim();
+  const title=document.getElementById('apTitle').value.trim(), price=parseFloat(document.getElementById('apPrice').value);
+  const old=parseFloat(document.getElementById('apOld').value)||0, desc=document.getElementById('apDesc').value.trim();
+  const sizesRaw=document.getElementById('apSizes').value.trim();
   const sizes = sizesRaw ? sizesRaw.split(',').map(s=>s.trim()).filter(Boolean) : [];
-  const cat = document.getElementById('apCat').value;
-  const img = pendingImgData || document.getElementById('apImgUrl').value.trim() || null;
-  const dokon = document.getElementById('apDokon').checked;
-  const uyga = document.getElementById('apUyga').checked;
-  const tag = document.getElementById('apTag').value;
-
-  if(!title || !price){ alert("Iltimos, mahsulot nomi va narxini kiriting."); return; }
-  if(!dokon && !uyga){ alert("Kamida bitta sotuv turini tanlang: do'kondan yoki uyga."); return; }
-
-  const delivery = [];
-  if(dokon) delivery.push('dokon');
-  if(uyga) delivery.push('uyga');
-
+  const cat=document.getElementById('apCat').value, img=pendingImgData||document.getElementById('apImgUrl').value.trim()||null;
+  const dokon=document.getElementById('apDokon').checked, uyga=document.getElementById('apUyga').checked, tag=document.getElementById('apTag').value;
+  const storeId = currentRole==='master' ? document.getElementById('apStore').value : currentStoreId;
+  if(!title||!price){ alert("Iltimos, mahsulot nomi va narxini kiriting."); return; }
+  if(!dokon && !uyga){ alert("Kamida bitta sotuv turini tanlang."); return; }
+  const delivery=[]; if(dokon)delivery.push('dokon'); if(uyga)delivery.push('uyga');
   if(editingId){
     const p = PRODUCTS.find(x=>x.id===editingId);
-    Object.assign(p, {title, price, old, cat, img, delivery, tag, desc, sizes});
+    if(currentRole==='store' && p.storeId!==currentStoreId){ alert("Faqat o'z do'koningiz mahsulotini tahrirlashingiz mumkin."); return; }
+    Object.assign(p,{title,price,old,cat,img,delivery,tag,desc,sizes,storeId});
   } else {
-    PRODUCTS.push({id:Date.now(), cat, icon:'🛍️', title, price, old, img, delivery, tag, desc, sizes});
+    PRODUCTS.push({id:Date.now(),storeId,cat,icon:'🛍️',title,price,old,img,delivery,tag,desc,sizes});
   }
-  resetProductForm();
-  renderAdminList();
-  applyFilters();
+  resetProductForm(); renderAdminList(); applyFilters();
 }
 
-/* ---------------- CHECKOUT ---------------- */
+/* ---------- ORDERS ---------- */
+function visibleOrdersForAdmin(){ return currentRole==='master' ? ORDERS : ORDERS.filter(o=>o.storeId===currentStoreId); }
+function paymentLabel(p){
+  return {naqd:'💵 Naqd pul', karta:'💳 Plastik karta', click:'📲 Click', payme:'📲 Payme'}[p] || '';
+}
+function renderOrdersList(){
+  const list = visibleOrdersForAdmin();
+  document.getElementById('ordersCount').textContent = list.length;
+  const wrap = document.getElementById('ordersList');
+  if(list.length===0){ wrap.innerHTML = '<div class="order-empty">Hozircha buyurtmalar tushmagan.</div>'; return; }
+  wrap.innerHTML = list.map(o=>{
+    const methodLabel = o.method==='uyga' ? '🚚 Uyga yetkazib berish' : "🏬 Do'kondan olib ketish";
+    const itemsHTML = o.items.map(it=>`<div style="font-size:12.5px;color:rgba(15,27,51,0.65);display:flex;justify-content:space-between;"><span>${it.title}${it.size?` · o'lcham: ${it.size}`:''} × ${it.qty}</span><span class="mono">${fmt(it.price*it.qty)}</span></div>`).join('');
+    const idx = STATUS_STEPS.indexOf(o.status);
+    const nextLabel = idx < STATUS_STEPS.length-1 ? STATUS_LABELS[STATUS_STEPS[idx+1]] : null;
+    const courierRow = (o.method==='uyga' && idx>=2) ? `
+      <div class="courier-row">
+        <input type="text" id="courier-${o.orderNum}" placeholder="Kuryer ismi" value="${o.courier||''}">
+        <button onclick="saveCourier('${o.orderNum}')">Saqlash</button>
+      </div>` : '';
+    return `<div class="order-card ${!o.seen?'is-new':''}">
+      <div class="order-card-head"><span class="mono" style="font-weight:700;color:var(--crimson);">${o.orderNum}${!o.seen?'<span class="new-flag">YANGI</span>':''}</span><span style="font-size:11px;color:rgba(15,27,51,0.45);">${o.time}</span></div>
+      ${currentRole==='master'?`<div style="font-size:11.5px;color:rgba(15,27,51,0.5);margin-top:4px;">🏬 ${storeName(o.storeId)}</div>`:''}
+      <div style="font-size:13.5px;font-weight:700;margin-top:6px;">👤 ${o.name} · ${o.phone}</div>
+      <div style="font-size:12.5px;color:rgba(15,27,51,0.6);margin-top:3px;">${methodLabel}${o.address?` — ${o.address}`:''}</div>
+      ${o.payment?`<div style="font-size:12px;color:rgba(15,27,51,0.55);margin-top:2px;">${paymentLabel(o.payment)}</div>`:''}
+      <div class="order-items">${itemsHTML}</div>
+      <div class="order-status-row">
+        <span class="status-chip st-${o.status}">${STATUS_LABELS[o.status]}</span>
+        ${nextLabel?`<button class="advance-btn" onclick="advanceOrderStatus('${o.orderNum}')">➡ ${nextLabel}</button>`:''}
+      </div>
+      <div class="eta-note">${ETA_LABELS[o.status]}</div>
+      ${courierRow}
+      ${(o.courier && idx<2) ? `<div class="courier-shown">🚴 Kuryer: ${o.courier}</div>` : ''}
+      <div class="mono" style="font-weight:700;margin-top:10px;font-size:15px;text-align:right;">Jami: ${fmt(o.total)}</div>
+    </div>`;
+  }).join('');
+}
+function saveCourier(orderNum){
+  const o = ORDERS.find(x=>x.orderNum===orderNum); if(!o) return;
+  const val = document.getElementById('courier-'+orderNum).value.trim();
+  o.courier = val;
+  renderOrdersList();
+}
+function advanceOrderStatus(orderNum){
+  const o = ORDERS.find(x=>x.orderNum===orderNum); if(!o) return;
+  const idx = STATUS_STEPS.indexOf(o.status);
+  if(idx < STATUS_STEPS.length-1) o.status = STATUS_STEPS[idx+1];
+  renderOrdersList();
+}
+function updateOrderBadge(){
+  const globalUnseen = ORDERS.filter(o=>!o.seen).length;
+  const badge = document.getElementById('orderBadge');
+  if(globalUnseen>0){ badge.style.display='flex'; badge.textContent=globalUnseen; badge.classList.add('pulse'); }
+  else { badge.style.display='none'; badge.classList.remove('pulse'); }
+
+  const scopedUnseen = currentRole==='store'
+    ? ORDERS.filter(o=>o.storeId===currentStoreId && !o.seen).length
+    : ORDERS.filter(o=>!o.seen).length;
+  const inline = document.getElementById('orderBadgeInline');
+  if(scopedUnseen>0){ inline.style.display='inline-flex'; inline.textContent=scopedUnseen; }
+  else { inline.style.display='none'; }
+}
+
+/* ---------- STORES ADMIN (master) ---------- */
+function addStoreManual(){
+  const name=document.getElementById('stName').value.trim(), category=document.getElementById('stCategory').value.trim();
+  const region=document.getElementById('stRegion').value.trim(), direction=document.getElementById('stDirection').value.trim();
+  const address=document.getElementById('stAddress').value.trim(), phone=document.getElementById('stPhone').value.trim();
+  const password=document.getElementById('stPassword').value.trim();
+  const dokon=document.getElementById('stDokon').checked, uyga=document.getElementById('stUyga').checked;
+  if(!name||!category||!region||!address||!password){ alert("Iltimos, barcha majburiy maydonlarni to'ldiring."); return; }
+  if(!dokon && !uyga){ alert("Kamida bitta xizmat turini tanlang."); return; }
+  const services=[]; if(dokon)services.push('dokon'); if(uyga)services.push('uyga');
+  STORES.push({id:'store_'+Date.now(),name,category,region,direction,address,services,phone,password});
+  populateStoreFilterSelects(); populateProductStoreSelect(); renderStores(); renderAdminStoresList();
+  ['stName','stCategory','stRegion','stDirection','stAddress','stPhone','stPassword'].forEach(id=>document.getElementById(id).value='');
+}
+function renderAdminStoresList(){
+  document.getElementById('storesCount').textContent = STORES.length;
+  document.getElementById('adminStoresList').innerHTML = `
+    <div class="security-note">🔒 <b>Xavfsizlik eslatmasi:</b> parollar hozircha oddiy matnda saqlanmoqda (namuna rejimi). Haqiqiy loyihada Supabase Auth orqali shifrlangan holda saqlang va bu yerda hech qachon ko'rsatmang.</div>
+  ` + STORES.map(s=>`
+    <div class="admin-row">
+      <div class="admin-row-thumb">🏬</div>
+      <div class="admin-row-info"><div class="t">${s.name}</div><div class="p mono">${s.region} · login: ${s.username||s.id} · parol: <span class="pw-mask" onclick="this.textContent=this.textContent==='••••••'?'${s.password}':'••••••'">••••••</span></div></div>
+      ${s.id!=='main'?`<div class="admin-row-actions"><button onclick="deleteStore('${s.id}')" title="O'chirish">🗑</button></div>`:''}
+    </div>`).join('');
+}
+function deleteStore(id){
+  if(!confirm("Bu do'konni va uning mahsulotlarini o'chirishga ishonchingiz komilmi?")) return;
+  STORES = STORES.filter(s=>s.id!==id);
+  for(let i=PRODUCTS.length-1;i>=0;i--) if(PRODUCTS[i].storeId===id) PRODUCTS.splice(i,1);
+  populateStoreFilterSelects(); populateProductStoreSelect(); renderStores(); renderAdminStoresList(); applyFilters();
+}
+
+/* ---------- REQUESTS ADMIN (master) ---------- */
+function updateReqBadge(){
+  const badge = document.getElementById('reqBadgeInline');
+  if(STORE_REQUESTS.length>0){ badge.style.display='inline-flex'; badge.textContent=STORE_REQUESTS.length; }
+  else badge.style.display='none';
+}
+function renderAdminRequestsList(){
+  document.getElementById('reqCount').textContent = STORE_REQUESTS.length;
+  const wrap = document.getElementById('requestsList');
+  if(STORE_REQUESTS.length===0){ wrap.innerHTML='<div class="order-empty">Hozircha so\'rovlar yo\'q.</div>'; return; }
+  wrap.innerHTML = STORE_REQUESTS.map(r=>`
+    <div class="order-card">
+      <div class="order-card-head"><span style="font-weight:700;">${r.name}</span><span style="font-size:11px;color:rgba(15,27,51,0.45);">${r.time}</span></div>
+      <div style="font-size:12.5px;color:rgba(15,27,51,0.6);margin-top:4px;">${r.category} · ${r.region}${r.direction?(' · '+r.direction):''}</div>
+      <div style="font-size:12.5px;color:rgba(15,27,51,0.6);margin-top:2px;">📍 ${r.address} · ${r.phone}</div>
+      <div class="order-status-row">
+        <button class="advance-btn" onclick="approveStoreRequest(${r.id})">✅ Tasdiqlash</button>
+        <button class="advance-btn" style="background:var(--crimson);color:#fff;" onclick="rejectStoreRequest(${r.id})">✕ Rad etish</button>
+      </div>
+    </div>`).join('');
+}
+function approveStoreRequest(id){
+  const r = STORE_REQUESTS.find(x=>x.id===id); if(!r) return;
+  const newId = 'store_'+Date.now();
+  const newPassword = String(Math.floor(1000+Math.random()*9000));
+  STORES.push({id:newId,name:r.name,category:r.category,region:r.region,direction:r.direction,address:r.address,services:r.services,phone:r.phone,password:newPassword});
+  STORE_REQUESTS = STORE_REQUESTS.filter(x=>x.id!==id);
+  updateReqBadge(); populateStoreFilterSelects(); populateProductStoreSelect(); renderStores(); renderAdminStoresList(); renderAdminRequestsList();
+  alert(`Do'kon tasdiqlandi!\n\nDo'kon: ${r.name}\nKirish paroli: ${newPassword}\n\nBu parolni do'kon egasiga bering.`);
+}
+function rejectStoreRequest(id){
+  STORE_REQUESTS = STORE_REQUESTS.filter(x=>x.id!==id);
+  updateReqBadge(); renderAdminRequestsList();
+}
+
+/* ---------- STATS ---------- */
+function computeRevenue(storeIdFilter){
+  const now = new Date(), todayStr = now.toDateString(), monthKey = now.getFullYear()+'-'+now.getMonth();
+  let daily=0, monthly=0, totalAll=0;
+  ORDERS.forEach(o=>{
+    if(storeIdFilter && o.storeId!==storeIdFilter) return;
+    const d = new Date(o.timestamp||Date.now());
+    totalAll += o.total;
+    if(d.toDateString()===todayStr) daily += o.total;
+    if((d.getFullYear()+'-'+d.getMonth())===monthKey) monthly += o.total;
+  });
+  return {daily,monthly,totalAll};
+}
+function renderStats(){
+  const wrap = document.getElementById('statsView');
+  if(currentRole==='master'){
+    const grand = computeRevenue(null);
+    const rows = STORES.map(s=>({name:s.name, ...computeRevenue(s.id)}));
+    wrap.innerHTML = `
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-label">Bugungi umumiy daromad</div><div class="stat-value">${fmt(grand.daily)}</div></div>
+        <div class="stat-card"><div class="stat-label">Shu oy umumiy daromad</div><div class="stat-value">${fmt(grand.monthly)}</div></div>
+        <div class="stat-card"><div class="stat-label">Jami buyurtmalar</div><div class="stat-value">${ORDERS.length} ta</div></div>
+      </div>
+      <table class="stats-table">
+        <thead><tr><th>Do'kon</th><th>Bugun</th><th>Shu oy</th><th>Jami</th></tr></thead>
+        <tbody>${rows.map(r=>`<tr><td>${r.name}</td><td class="mono">${fmt(r.daily)}</td><td class="mono">${fmt(r.monthly)}</td><td class="mono">${fmt(r.totalAll)}</td></tr>`).join('')}</tbody>
+      </table>`;
+  } else {
+    const rev = computeRevenue(currentStoreId);
+    wrap.innerHTML = `
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-label">Bugungi daromad</div><div class="stat-value">${fmt(rev.daily)}</div></div>
+        <div class="stat-card"><div class="stat-label">Shu oy daromad</div><div class="stat-value">${fmt(rev.monthly)}</div></div>
+        <div class="stat-card"><div class="stat-label">Jami daromad</div><div class="stat-value">${fmt(rev.totalAll)}</div></div>
+      </div>`;
+  }
+}
+
+/* ---------- CHECKOUT ---------- */
 function openCheckout(){
   if(cart.length===0){ alert("Savatcha bo'sh — avval mahsulot tanlang."); return; }
   renderCheckoutForm();
   document.getElementById('checkoutModalOverlay').classList.add('show');
 }
 function closeCheckout(){ document.getElementById('checkoutModalOverlay').classList.remove('show'); }
-
 function renderCheckoutForm(){
   const all = allProducts();
   const items = cart.map(c=>({...c, p: all.find(x=>x.id===c.id)})).filter(x=>x.p);
-  const hasHome = items.some(x=>x.p.delivery.includes('uyga'));
-  const hasStore = items.some(x=>x.p.delivery.includes('dokon'));
+  const hasHome = items.some(x=>x.p.delivery.includes('uyga')), hasStore = items.some(x=>x.p.delivery.includes('dokon'));
   const total = items.reduce((s,x)=>s+x.p.price*x.qty,0);
-
   document.getElementById('checkoutBody').innerHTML = `
     <div class="form-field"><label>Ism Familiya</label><input id="coName" placeholder="Ism Familiya"></div>
     <div class="form-field"><label>Telefon raqam</label><input id="coPhone" placeholder="+998 90 123 45 67"></div>
@@ -1238,12 +1416,20 @@ function renderCheckoutForm(){
       </select>
     </div>
     <div id="coAddressBlock"></div>
-    <div class="sum" style="margin:14px 0;display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:14px;"><span>Jami:</span><span>${fmt(total)}</span></div>
+    <div class="form-field"><label>To'lov usuli</label>
+      <select id="coPayment">
+        <option value="naqd">💵 Naqd pul (yetkazib berilganda)</option>
+        <option value="karta">💳 Plastik karta (yetkazib berilganda / do'konda)</option>
+        <option value="click">📲 Click orqali</option>
+        <option value="payme">📲 Payme orqali</option>
+      </select>
+    </div>
+    <div class="payment-note">⚠ Namuna rejimi: Click/Payme orqali haqiqiy to'lovni yoqish uchun ularning savdogar (merchant) hisobini ulash kerak.</div>
+    <div style="display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:14px;margin:14px 0;"><span>Jami:</span><span>${fmt(total)}</span></div>
     <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="submitOrder()">Buyurtmani tasdiqlash</button>
   `;
   onDeliveryMethodChange();
 }
-
 function onDeliveryMethodChange(){
   const method = document.getElementById('coMethod').value;
   const block = document.getElementById('coAddressBlock');
@@ -1251,36 +1437,65 @@ function onDeliveryMethodChange(){
     block.innerHTML = `
       <div class="form-field"><label>Yetkazib berish manzili</label><input id="coAddress" placeholder="Shahar, tuman, ko'cha, uy raqami"></div>
       <iframe src="https://www.google.com/maps?q=Toshkent&z=11&output=embed" width="100%" height="190" style="border:0;border-radius:12px;margin-top:4px;" loading="lazy"></iframe>
-      <div class="form-note" style="margin-top:8px;">Xarita hozircha shahar bo'yicha yo'naltiruvchi — aniq manzilni tepadagi maydonga yozing.</div>
-    `;
+      <div class="form-note" style="margin-top:8px;">Xarita shahar bo'yicha yo'naltiruvchi — aniq manzilni tepadagi maydonga yozing.</div>`;
   } else {
-    block.innerHTML = `
-      <div class="form-field"><label>Do'kon manzili</label><div class="static-address">📍 VIP MARKET rasmiy do'koni — Toshkent sh., Chilonzor tumani, Bunyodkor shoh ko'chasi 1</div></div>
-      <iframe src="https://www.google.com/maps?q=41.2995,69.2401&z=15&output=embed" width="100%" height="190" style="border:0;border-radius:12px;margin-top:8px;" loading="lazy"></iframe>
-    `;
+    block.innerHTML = `<div class="form-field"><label>Eslatma</label><div class="static-address">Har bir do'konning o'z manzili bor — buyurtma tasdiqlangach ko'rsatiladi.</div></div>`;
   }
+}
+// ---------- TELEGRAM BOT NOTIFICATION (1-taklif) ----------
+// To'ldiring: BotFather'dan olingan bot token va guruh/kanal chat ID.
+// Bot yaratish: Telegram'da @BotFather ga /newbot yozing, tokenni oling.
+// Chat ID olish: botni guruhga qo'shing, @userinfobot yoki
+// https://api.telegram.org/bot<TOKEN>/getUpdates orqali chat_id'ni toping.
+const TELEGRAM_BOT_TOKEN = ''; // masalan: '7123456789:AAExampleTokenHere'
+const TELEGRAM_CHAT_ID   = ''; // masalan: '-1001234567890'
+
+async function notifyTelegram(text){
+  if(!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) return; // sozlanmagan bo'lsa, jim o'tkaziladi
+  try{
+    await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text, parse_mode:'HTML' })
+    });
+  }catch(e){ console.warn('Telegram xabari yuborilmadi:', e); }
 }
 
 function submitOrder(){
-  const name = document.getElementById('coName').value.trim();
-  const phone = document.getElementById('coPhone').value.trim();
-  const method = document.getElementById('coMethod').value;
+  const name=document.getElementById('coName').value.trim(), phone=document.getElementById('coPhone').value.trim();
+  const method=document.getElementById('coMethod').value;
+  const payment=document.getElementById('coPayment').value;
   const address = method==='uyga' ? document.getElementById('coAddress').value.trim() : '';
-  if(!name || !phone){ alert("Iltimos, ism va telefon raqamingizni kiriting."); return; }
+  if(!name||!phone){ alert("Iltimos, ism va telefon raqamingizni kiriting."); return; }
   if(method==='uyga' && !address){ alert("Iltimos, yetkazib berish manzilini kiriting."); return; }
 
   const all = allProducts();
-  const items = cart.map(c=>{
-    const p = all.find(x=>x.id===c.id);
-    return { title: p ? p.title : 'Noma\'lum mahsulot', qty: c.qty, price: p ? p.price : 0, size: c.size || null };
+  const byStore = {};
+  cart.forEach(c=>{
+    const p = all.find(x=>x.id===c.id); if(!p) return;
+    const sid = p.storeId || 'main';
+    if(!byStore[sid]) byStore[sid]=[];
+    byStore[sid].push({id:p.id, title:p.title,qty:c.qty,price:p.price,size:c.size||null});
   });
-  const total = items.reduce((s,it)=>s+it.price*it.qty, 0);
-  const orderNum = 'VM-' + Math.floor(100000+Math.random()*900000);
+  const orderNums = [];
+  Object.keys(byStore).forEach(sid=>{
+    const items = byStore[sid];
+    const total = items.reduce((s,it)=>s+it.price*it.qty,0);
+    const orderNum = 'VM-' + Math.floor(100000+Math.random()*900000);
+    orderNums.push({num:orderNum, store:storeName(sid)});
+    ORDERS.unshift({orderNum,storeId:sid,name,phone,method,address,payment,items,total,time:new Date().toLocaleString('uz-UZ'),timestamp:Date.now(),seen:false,status:'yangi',courier:''});
 
-  ORDERS.unshift({
-    orderNum, name, phone, method, address, items, total,
-    time: new Date().toLocaleString('uz-UZ'),
-    seen: false
+    const itemsText = items.map(it=>`• ${it.title}${it.size?` (o'lcham: ${it.size})`:''} × ${it.qty} — ${fmt(it.price*it.qty)}`).join('\n');
+    notifyTelegram(
+      `🛎 <b>Yangi buyurtma!</b>\n\n` +
+      `🏬 Do'kon: ${storeName(sid)}\n` +
+      `🔖 Raqam: <b>${orderNum}</b>\n` +
+      `👤 ${name} · ${phone}\n` +
+      `${method==='uyga' ? `🚚 Uyga: ${address}` : `🏬 Do'kondan olib ketish`}\n` +
+      `${paymentLabel(payment)}\n\n` +
+      `${itemsText}\n\n` +
+      `💰 Jami: <b>${fmt(total)}</b>`
+    );
   });
   updateOrderBadge();
 
@@ -1288,27 +1503,50 @@ function submitOrder(){
     <div style="text-align:center;padding:14px 0;">
       <div style="font-size:40px;">✅</div>
       <h3 style="margin-top:10px;">Buyurtma qabul qilindi!</h3>
-      <p class="mono" style="margin-top:8px;color:var(--crimson);font-weight:700;">${orderNum}</p>
-      <p style="font-size:13px;color:rgba(15,27,51,0.6);margin-top:10px;">
-        ${method==='uyga' ? `Manzilingizga yetkazib beriladi: ${address}` : `Do'kondan olib ketishingiz mumkin: Bunyodkor shoh ko'chasi 1`}
-      </p>
-      <button class="btn btn-gold" style="margin-top:18px;" onclick="finishOrder()">Yopish</button>
-    </div>
-  `;
+      ${orderNums.map(o=>`<p class="mono" style="margin-top:8px;color:var(--crimson);font-weight:700;">${o.num} <span style="color:rgba(15,27,51,0.5);font-weight:400;font-size:11px;">(${o.store})</span></p>`).join('')}
+      <p style="font-size:13px;color:rgba(15,27,51,0.6);margin-top:10px;">${method==='uyga' ? `Manzilingizga yetkazib beriladi: ${address}` : `Do'kon(lar)dan olib ketishingiz mumkin.`}</p>
+      <p style="font-size:11.5px;color:rgba(15,27,51,0.45);margin-top:6px;">Holatni kuzatish uchun buyurtma raqamini saqlab qo'ying.</p>
+      <button class="btn btn-ghost" style="margin-top:12px;border:1px solid var(--line-dark);" onclick="closeCheckout();openTrackModal();document.getElementById('trackInput').value='${orderNums[0].num}';trackOrder();">📦 Holatni hozir ko'rish</button>
+      <button class="btn btn-gold" style="margin-top:10px;" onclick="finishOrder()">Yopish</button>
+    </div>`;
 }
-function finishOrder(){
-  cart = [];
-  renderCart();
-  closeCheckout();
-  toggleCart(false);
-}
+function finishOrder(){ cart=[]; renderCart(); closeCheckout(); toggleCart(false); }
 
-/* init */
+/* ---------- ORDER TRACKING (public) ---------- */
+function openTrackModal(){ document.getElementById('trackModalOverlay').classList.add('show'); document.getElementById('trackResult').innerHTML=''; document.getElementById('trackInput').value=''; }
+function closeTrackModal(){ document.getElementById('trackModalOverlay').classList.remove('show'); }
+function trackOrder(){
+  const num = document.getElementById('trackInput').value.trim().toUpperCase();
+  const order = ORDERS.find(o=>o.orderNum===num);
+  const box = document.getElementById('trackResult');
+  if(!order){ box.innerHTML = '<p style="color:var(--crimson);font-size:13px;">Bunday raqamli buyurtma topilmadi.</p>'; return; }
+  const idx = STATUS_STEPS.indexOf(order.status);
+  const fillPct = (idx/(STATUS_STEPS.length-1))*100;
+  box.innerHTML = `
+    <div class="order-card">
+      <div class="order-card-head"><span class="mono" style="font-weight:700;color:var(--crimson);">${order.orderNum}</span><span style="font-size:11px;color:rgba(15,27,51,0.45);">${order.time}</span></div>
+      <div style="font-size:13px;margin-top:6px;">🏬 ${storeName(order.storeId)}</div>
+      <div class="track-steps">
+        <div class="track-fill" style="width:${fillPct}%;"></div>
+        ${STATUS_STEPS.map((s,i)=>`<div class="track-step ${i<=idx?'on':''} ${i===idx?'current':''}">${i<idx?'✓ ':''}${STATUS_LABELS[s]}</div>`).join('')}
+      </div>
+      <div class="eta-note">${ETA_LABELS[order.status]}</div>
+      ${order.courier ? `<div class="courier-shown">🚴 Kuryer: ${order.courier}</div>` : ''}
+      ${order.payment ? `<div class="courier-shown">${paymentLabel(order.payment)}</div>` : ''}
+      <div class="mono" style="font-weight:700;margin-top:14px;text-align:right;">Jami: ${fmt(order.total)}</div>
+    </div>`;
+}
+document.getElementById('trackInput').addEventListener('keydown', e=>{ if(e.key==='Enter') trackOrder(); });
+
+/* ---------- INIT ---------- */
 renderFlash();
+populateStoreFilterSelects();
+renderStores();
 applyFilters();
 renderCart();
 calcInstallment();
 updateOrderBadge();
+updateReqBadge();
 </script>
 </body>
 </html>
